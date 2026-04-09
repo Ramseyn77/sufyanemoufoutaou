@@ -1,70 +1,68 @@
 import React, { useState } from 'react'
-// import logo1 from "../assets/img/logo1.png" 
-import logo2 from "../assets/img/logo2.png" 
-import { FaGithub, FaLinkedin, FaWhatsapp, FaFacebook, FaEnvelope, FaBars, FaTimes } from 'react-icons/fa'
+import { NavLink } from 'react-router-dom'
+import logo2 from "../assets/img/logo2.png"
+import { FaBars, FaTimes } from 'react-icons/fa'
+
+const navLinks = [
+  { to: '/', label: 'Accueil' },
+  { to: '/about', label: 'À propos' },
+  { to: '/portfolio', label: 'Portfolio' },
+  { to: '/skills', label: 'Compétences' },
+  { to: '/services', label: 'Services' },
+  { to: '/blog', label: 'Blog' },
+  { to: '/contact', label: 'Contact' },
+]
+
+const linkClass = ({ isActive }) =>
+  `text-sm font-medium transition hover:text-indigo-500 dark:hover:text-blue-400 ${
+    isActive
+      ? 'text-indigo-600 dark:text-blue-400 font-semibold'
+      : 'text-[#1B263B] dark:text-[#8CA5C4]'
+  }`
 
 const Navbar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false)
 
   return (
     <>
       {/* Desktop */}
-      <div className="hidden md:flex flex-row justify-between items-center py-1 px-2 w-full bg-white dark:bg-[#0D1B2A] mb-5 top-2">
-        {/* Logo à gauche */}
-        <div className='flex items-center'>
-          <img src={logo2} alt="logo" className='w-10 h-10 rounded-full' />
+      <nav className="hidden md:flex flex-row justify-between items-center w-full bg-white dark:bg-[#0D1B2A] mb-5 py-3 px-4">
+        {/* Logo + nom */}
+        <NavLink to="/" className="flex flex-row items-center gap-3">
+          <img src={logo2} alt="logo" className="w-10 h-10 rounded-full" />
+          <span className="text-xl font-bold text-[#0D1B2A] dark:text-[#E0E1DD]">
+            Sufyane MOUFOUTAOU
+          </span>
+        </NavLink>
+        {/* Liens de navigation */}
+        <div className="flex flex-row items-center gap-6">
+          {navLinks.map(({ to, label }) => (
+            <NavLink key={to} to={to} end={to === '/'} className={linkClass}>
+              {label}
+            </NavLink>
+          ))}
         </div>
-        {/* Nom au centre */}
-        <div className='flex items-center text-2xl font-bold text-[#0D1B2A] dark:text-[#E0E1DD]'>
-          Sufyane MOUFOUTAOU
-        </div>
-        {/* Réseaux à droite */}
-        <div className='flex items-center gap-4 justify-between text-md'>
-          <a href="mailto:sufyaneramseyn@gmail.com"><FaEnvelope  className="text-[#1B263B] dark:text-[#8CA5C4] hover:text-indigo-500 dark:hover:text-blue-500 hover:scale-110 transition" /></a>
-          <a href="https://github.com/Ramseyn77"> <FaGithub  className="text-[#1B263B] dark:text-[#8CA5C4] hover:text-indigo-500 dark:hover:text-blue-500 hover:scale-110 transition" /></a>
-          <a href="https://linkedin.com/in/sufyane-ramseyn-5a5285282"> <FaLinkedin className="text-[#1B263B] dark:text-[#8CA5C4] hover:text-indigo-500 dark:hover:text-blue-500 hover:scale-110 transition"  /></a>
-          <a href="https://wa.me/22954209334?text=Bonjour%2C%20je%20viens%20de%20votre%20portfolio%20et%20j’aimerais%20échanger%20avec%20vous."> <FaWhatsapp className="text-[#1B263B] dark:text-[#8CA5C4] hover:text-indigo-500 dark:hover:text-blue-500 hover:scale-110 transition"  /></a>
-          <a href="https://www.facebook.com/sufyane.ramseyn"> <FaFacebook  className="text-[#1B263B] dark:text-[#8CA5C4] hover:text-indigo-500 dark:hover:text-blue-500 hover:scale-110 transition" /></a>
-        </div>
-      </div>
+      </nav>
 
       {/* Mobile */}
-      <div className="md:hidden w-full bg-white dark:bg-[#0D1B2A] mb-5 px-2 py-1 flex flex-col mt-2">
-        {/* Header mobile : logo + nom centrés */}
-        <div className="flex flex-row items-center justify-center relative">
-          {/* Bouton menu hamburger à gauche */}
+      <nav className="md:hidden w-full bg-white dark:bg-[#0D1B2A] mb-5 px-3 py-2">
+        <div className="flex flex-row items-center justify-between">
           <button
-            className="absolute left-0 top-1/2 -translate-y-1/2 p-2 focus:outline-none"
             onClick={() => setMenuOpen(true)}
             aria-label="Ouvrir le menu"
+            className="p-2 focus:outline-none"
           >
             <FaBars className="text-2xl text-[#1B263B] dark:text-[#8CA5C4]" />
           </button>
-          {/* Logo et nom centrés */}
-          <div className="flex flex-col items-center w-full">
-            <img src={logo2} alt="logo" className='w-10 h-10 rounded-full mx-auto' />
-            <span className="text-lg font-bold text-[#0D1B2A] dark:text-[#E0E1DD] mt-1">Sufyane MOUFOUTAOU</span>
-          </div>
+          <NavLink to="/" className="flex flex-row items-center gap-2">
+            <img src={logo2} alt="logo" className="w-9 h-9 rounded-full" />
+            <span className="text-sm font-bold text-[#0D1B2A] dark:text-[#E0E1DD]">
+              Sufyane MOUFOUTAOU
+            </span>
+          </NavLink>
         </div>
-        {/* Réseaux sociaux sous forme d’icônes boutons circulaires */}
-        <div className="flex flex-row justify-center gap-3 mt-2">
-          <a href="mailto:sufyaneramseyn@gmail.com" className="rounded-full bg-[#E0E1DD] dark:bg-[#1B263B] p-2 flex items-center justify-center shadow hover:bg-indigo-100 dark:hover:bg-blue-900 transition">
-            <FaEnvelope className="text-[#1B263B] dark:text-gray-400 text-lg" />
-          </a>
-          <a href="https://github.com/Ramseyn77" className="rounded-full bg-[#E0E1DD] dark:bg-[#1B263B] p-2 flex items-center justify-center shadow hover:bg-indigo-100 dark:hover:bg-blue-900 transition">
-            <FaGithub className="text-[#1B263B] dark:text-gray-400 text-lg" />
-          </a>
-          <a href="https://linkedin.com/in/sufyane-ramseyn-5a5285282" className="rounded-full bg-[#E0E1DD] dark:bg-[#1B263B] p-2 flex items-center justify-center shadow hover:bg-indigo-100 dark:hover:bg-blue-900 transition">
-            <FaLinkedin className="text-[#1B263B] dark:text-gray-400 text-lg" />
-          </a>
-          <a href="https://wa.me/22954209334?text=Bonjour%2C%20je%20viens%20de%20votre%20portfolio%20et%20j’aimerais%20échanger%20avec%20vous." className="rounded-full bg-[#E0E1DD] dark:bg-[#1B263B] p-2 flex items-center justify-center shadow hover:bg-indigo-100 dark:hover:bg-blue-900 transition">
-            <FaWhatsapp className="text-[#1B263B] dark:text-gray-400 text-lg" />
-          </a>
-          <a href="https://www.facebook.com/sufyane.ramseyn" className="rounded-full bg-[#E0E1DD] dark:bg-[#1B263B] p-2 flex items-center justify-center shadow hover:bg-indigo-100 dark:hover:bg-blue-900 transition">
-            <FaFacebook className="text-[#1B263B] dark:text-gray-400 text-lg" />
-          </a>
-        </div>
-        {/* Menu latéral/déroulant */}
+
+        {/* Drawer */}
         {menuOpen && (
           <div className="fixed inset-0 z-50 bg-black bg-opacity-40 flex">
             <div className="bg-white dark:bg-[#0D1B2A] w-2/3 max-w-xs h-full p-6 flex flex-col shadow-lg animate-slide-in-left">
@@ -75,32 +73,37 @@ const Navbar = () => {
               >
                 <FaTimes />
               </button>
-              <div className="flex flex-col items-center gap-6">
-                <img src={logo2} alt="logo" className='w-10 h-10 rounded-full mx-auto items-center' />
-                <a href="#presentation" onClick={() => setMenuOpen(false)}><span className=' text-[#1B263B] hover:text-indigo-500 dark:text-[#8CA5C4] dark:hover:text-blue-500 '> Présentation </span></a>
-                <a href="#experiences" onClick={() => setMenuOpen(false)}><span className=' text-[#1B263B] hover:text-indigo-500 dark:text-[#8CA5C4] dark:hover:text-blue-500 '> Expériences </span></a>
-                <a href="#projets" onClick={() => setMenuOpen(false)}><span className=' text-[#1B263B] hover:text-indigo-500 dark:text-[#8CA5C4] dark:hover:text-blue-500 '> Projets </span></a>
-                <a href="#competences" onClick={() => setMenuOpen(false)}><span className=' text-[#1B263B] hover:text-indigo-500 dark:text-[#8CA5C4] dark:hover:text-blue-500 '> Competences </span></a>
-                <a href="#contact" onClick={() => setMenuOpen(false)}><span className=' text-[#1B263B] hover:text-indigo-500 dark:text-[#8CA5C4] dark:hover:text-blue-500 '> Contact </span></a>
+              <NavLink to="/" onClick={() => setMenuOpen(false)} className="flex flex-col items-center mb-6">
+                <img src={logo2} alt="logo" className="w-12 h-12 rounded-full" />
+              </NavLink>
+              <div className="flex flex-col gap-5">
+                {navLinks.map(({ to, label }) => (
+                  <NavLink
+                    key={to}
+                    to={to}
+                    end={to === '/'}
+                    onClick={() => setMenuOpen(false)}
+                    className={linkClass}
+                  >
+                    {label}
+                  </NavLink>
+                ))}
               </div>
             </div>
-            {/* Pour fermer le menu en cliquant à l'extérieur */}
-            <div className="flex-1" onClick={() => setMenuOpen(false)}></div>
+            <div className="flex-1" onClick={() => setMenuOpen(false)} />
           </div>
         )}
-      </div>
-      {/* Petite animation pour le menu latéral */}
-      <style>
-        {`
-          @keyframes slide-in-left {
-            0% { transform: translateX(-100%);}
-            100% { transform: translateX(0);}
-          }
-          .animate-slide-in-left {
-            animation: slide-in-left 0.3s cubic-bezier(0.4,0,0.2,1);
-          }
-        `}
-      </style>
+      </nav>
+
+      <style>{`
+        @keyframes slide-in-left {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(0); }
+        }
+        .animate-slide-in-left {
+          animation: slide-in-left 0.3s cubic-bezier(0.4,0,0.2,1);
+        }
+      `}</style>
     </>
   )
 }

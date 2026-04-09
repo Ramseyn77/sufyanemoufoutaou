@@ -1,141 +1,146 @@
-import { ContactIcon } from 'lucide-react'
-import React from 'react'
+import React, { useState } from 'react'
 import logo2 from "../assets/img/logo2.png"
-import { FaWhatsapp, FaLinkedin, FaFacebook, FaInstagram, FaEnvelope } from 'react-icons/fa'
+import { FaWhatsapp, FaLinkedin, FaFacebook, FaEnvelope } from 'react-icons/fa'
 import { GoArrowUpRight } from 'react-icons/go'
+import data from '../utils/data.json'
+
+const iconMap = {
+  FaWhatsapp: FaWhatsapp,
+  FaEnvelope: FaEnvelope,
+  FaLinkedin: FaLinkedin,
+  FaFacebook: FaFacebook,
+}
+
+const iconColors = {
+  FaWhatsapp: '#25D366',
+  FaEnvelope: '#EA4335',
+  FaLinkedin: '#0077B5',
+  FaFacebook: '#1877F3',
+}
+
+const contacts = data.contacts.map((c) => ({ ...c, img: logo2 }))
 
 const Contact = () => {
-    // Définition des couleurs pour chaque réseau
-    const iconColors = {
-        whatsapp: "#25D366",
-        linkedin: "#0077B5",
-        facebook: "#1877F3",
-        instagram: "#E4405F",
-        email: "#EA4335" // Rouge Gmail
-    }
+  const [form, setForm] = useState({ nom: '', email: '', sujet: '', description: '' })
 
-    const contacts = [
-        {
-            logo: FaWhatsapp,
-            color: iconColors.whatsapp,
-            img: logo2,
-            name: "Sufyane Ramseyn",
-            followers: '222 contacts',
-            link: 'https://wa.me/229484759044?text=Bonjour%2C%20je%20viens%20de%20votre%20portfolio%20et%20j’aimerais%20échanger%20avec%20vous.'
-        },
-        {
-            logo: FaLinkedin,
-            color: iconColors.linkedin,
-            img: logo2,
-            name: "Sufyane Ramseyn",
-            followers: '148 relations',
-            link: 'https://linkedin.com/in/sufyane-ramseyn-5a5285282'
-        },
-        {
-            logo: FaFacebook,
-            color: iconColors.facebook,
-            img: logo2,
-            name: "Sufyane Ramseyn",
-            followers: '1,1k followers',
-            link: 'https://www.facebook.com/sufyane.ramseyn'
-        },
-        {
-            logo: FaInstagram,
-            color: iconColors.instagram,
-            img: logo2,
-            name: "Sufyane Ramseyn",
-            followers: '16 followers',
-            link: 'https://www.instagram.com/sufyaneramseyn?igsh=bmR1dWpxb2EwZDJh '
-        },
-        {
-            logo: FaEnvelope,
-            color: iconColors.email,
-            img: logo2,
-            name: "Sufyane Ramseyn",
-            followers: '',
-            link: 'mailto:sufyaneramseyn@gmail.com'
-        }
-    ]
+  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
 
-    return (
-        <>
-            <div id='contact' className='flex flex-col justify-center items-center w-full py-2 bg-white dark:bg-[#0D1B2A] gap-12'>
-                <div className='flex flex-col gap-2 justify-center items-center'>
-                    <span className='flex flex-row gap-x-2 text-sm text-indigo-500 font-medium dark:text-blue-500 items-center'>
-                        <ContactIcon /> Contact
-                    </span>
-                    <p className='text-3xl text-[#0D1B2A] font-bold dark:text-[#E0E1DD]'>
-                        J’aimerais travailler avec vous
-                    </p>
-                </div>
-
-                {/* 
-                    Desktop : boutons sur une ligne (flex-row)
-                    Mobile : grille 2x2 max (grid grid-cols-2), sinon colonne si peu d'éléments
-                */}
-                <div className=" w-full flex-row flex-wrap gap-4 items-center hidden md:flex justify-center  ">
-                    {contacts.map((item, index) => {
-                        const Logo = item.logo
-                        return (
-                            <div key={index} className='relative flex flex-row gap-2 px-3 py-3 w-[30%] min-w-[220px] max-w-[300px] bg-gray-50 rounded-lg hover:scale-105 transition-all duration-300 dark:bg-[#1B263B] shadow-sm hover:shadow-md items-center'>
-                                {/* Image avec badge logo en bas à droite */}
-                                <div className='relative flex-shrink-0'>
-                                    <img src={item.img} alt="logoEntreprise" className='h-10 w-10 rounded-full object-cover'/>
-                                    <span  className="  absolute bottom-0 right-0  translate-x-1/4  translate-y-1/4  bg-white dark:bg-[#2A3A4A] rounded-full p-1shadow border border-gray-200 dark:border-[#1B263B] flex items-center justify-center"  >
-                                        <Logo className="w-4 h-4" style={{ color: item.color }} />
-                                    </span>
-                                </div>
-                                <div className='flex flex-col gap-2 w-full min-w-0'>
-                                    <div className='flex flex-col items-start justify-center text-[#0D1B2A] font-bold text-sm dark:text-[#E0E1DD]'>
-                                        {item.name}
-                                    </div>
-                                    <div className='flex flex-row justify-between items-center w-full text-xs text-gray-600 font-semibold dark:text-gray-400'>
-                                        <span>{item.followers}</span>
-                                        <a href={item.link}>
-                                            <GoArrowUpRight className='h-4 w-8 hover:scale-130 transition-all duration-300 text-gray-600 font-semibold dark:text-gray-400' />
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        )
-                    })}
-                </div>
-
-                {/* Mobile : grille 2x2 max */}
-                <div className=" w-full grid grid-cols-1 xs:grid-cols-2 gap-4 items-center md:hidden px-2 "  >
-                    {contacts.map((item, index) => {
-                        const Logo = item.logo
-                        return (
-                            <div key={index} className='relative flex flex-row gap-2 px-3 py-3 w-full bg-gray-50 rounded-lg hover:scale-105 transition-all duration-300 dark:bg-[#1B263B] shadow-sm hover:shadow-md items-center'  >
-                                {/* Image avec badge logo en bas à droite */}
-                                <div className='relative flex-shrink-0'>
-                                    <img
-                                        src={item.img}
-                                        alt="logoEntreprise"
-                                        className='h-14 w-14 rounded-full object-cover'
-                                    />
-                                    <span className="absolute bottom-0 right-0 translate-x-1/4 translate-y-1/4 bg-white dark:bg-[#2A3A4A] rounded-full p-1 shadow border border-gray-200 dark:border-[#1B263B] flex items-center justify-center " >
-                                        <Logo className="w-4 h-4" style={{ color: item.color }} />
-                                    </span>
-                                </div>
-                                <div className='flex flex-col gap-2 w-full min-w-0'>
-                                    <div className='flex flex-col items-start justify-center text-[#0D1B2A] font-bold text-sm dark:text-[#E0E1DD]'>
-                                        {item.name}
-                                    </div>
-                                    <div className='flex flex-row justify-between items-center w-full text-xs text-gray-600 font-semibold dark:text-gray-400'>
-                                        <span>{item.followers}</span>
-                                        <a href={item.link}>
-                                            <GoArrowUpRight className='h-6 w-6 hover:scale-130 transition-all duration-300 text-gray-600 font-semibold dark:text-gray-400' />
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        )
-                    })}
-                </div>
-            </div>
-        </>
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const subject = encodeURIComponent(form.sujet || 'Contact depuis portfolio')
+    const body = encodeURIComponent(
+      `Nom: ${form.nom}\nEmail: ${form.email}\n\n${form.description}`
     )
+    window.open(`mailto:sufyaneramseyn@gmail.com?subject=${subject}&body=${body}`)
+  }
+
+  return (
+    <div id="contact" className="w-full py-10 px-4">
+      <div className="flex flex-col lg:flex-row gap-6 w-full">
+
+        {/* Gauche — Parlons en */}
+        <div className="lg:w-[40%] bg-[#f3f4f6] dark:bg-[#1B263B] rounded-2xl p-6 flex flex-col gap-6">
+          <div className="flex items-center gap-3">
+            <div className="bg-white dark:bg-[#0D1B2A] rounded-full p-2">
+              <FaEnvelope className="text-lg text-[#1B263B] dark:text-[#8CA5C4]" />
+            </div>
+            <h2 className="text-3xl font-bold text-[#0D1B2A] dark:text-[#E0E1DD]">Parlons en ...</h2>
+          </div>
+
+          <div className="flex flex-col gap-8">
+            {contacts.map(({ logo, img, name, followers, link }) => {
+              const Icon = iconMap[logo]
+              const color = iconColors[logo]
+              return (
+                <a
+                  key={logo + name}
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-row items-center gap-3 bg-white dark:bg-[#0D1B2A] rounded-xl px-4 py-3 hover:scale-[1.02] transition group"
+                >
+                  <div className="relative flex-shrink-0">
+                    <img src={img} alt="avatar" className="h-10 w-10 rounded-full object-cover" />
+                    <span className="absolute -bottom-1 -right-1 bg-white dark:bg-[#1B263B] rounded-full p-0.5 border border-gray-200 dark:border-[#253450] flex items-center justify-center">
+                      <Icon className="w-3 h-3" style={{ color }} />
+                    </span>
+                  </div>
+                  <div className="flex flex-col flex-1 min-w-0">
+                    <span className="text-sm font-semibold text-[#0D1B2A] dark:text-[#E0E1DD] truncate">{name}</span>
+                    {followers && (
+                      <span className="text-xs text-gray-500 dark:text-gray-400">{followers}</span>
+                    )}
+                  </div>
+                  <GoArrowUpRight className="text-gray-400 group-hover:text-indigo-500 dark:group-hover:text-blue-400 transition text-lg flex-shrink-0" />
+                </a>
+              )
+            })}
+          </div>
+        </div>
+
+        {/* Droite — Formulaire */}
+        <form
+          onSubmit={handleSubmit}
+          className="flex-1 rounded-2xl p-6 flex flex-col gap-4 lg:w-[50%]"
+        >
+          <div className="flex flex-col gap-1">
+            <label className="text-xs font-medium text-gray-500 dark:text-gray-400">Nom</label>
+            <input
+              name="nom"
+              value={form.nom}
+              onChange={handleChange}
+              required
+              placeholder="Votre nom"
+              className="bg-[#f3f4f6] dark:bg-[#1B263B] rounded-lg px-4 py-2.5 text-sm text-[#0D1B2A] dark:text-[#E0E1DD] border border-gray-200 dark:border-[#253450] focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:focus:ring-gray-400"
+            />
+          </div>
+          <div className="flex flex-col gap-1">
+            <label className="text-xs font-medium text-gray-500 dark:text-gray-400">Email</label>
+            <input
+              name="email"
+              type="email"
+              value={form.email}
+              onChange={handleChange}
+              required
+              placeholder="votre@email.com"
+              className="bg-[#f3f4f6] dark:bg-[#1B263B] rounded-lg px-4 py-2.5 text-sm text-[#0D1B2A] dark:text-[#E0E1DD] border border-gray-200 dark:border-[#253450] focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:focus:ring-gray-400"
+            />
+          </div>
+          <div className="flex flex-col gap-1">
+            <label className="text-xs font-medium text-gray-500 dark:text-gray-400">Sujet du projet</label>
+            <input
+              name="sujet"
+              value={form.sujet}
+              onChange={handleChange}
+              placeholder="Ex: Site e-commerce, App mobile..."
+              className="bg-[#f3f4f6] dark:bg-[#1B263B] rounded-lg px-4 py-2.5 text-sm text-[#0D1B2A] dark:text-[#E0E1DD] border border-gray-200 dark:border-[#253450] focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:focus:ring-gray-400"
+            />
+          </div>
+          <div className="flex flex-col gap-1 flex-1">
+            <label className="text-xs font-medium text-gray-500 dark:text-gray-400">Description</label>
+            <textarea
+              name="description"
+              value={form.description}
+              onChange={handleChange}
+              rows={5}
+              placeholder="Décrivez votre projet..."
+              className="bg-[#f3f4f6] dark:bg-[#1B263B] rounded-lg px-4 py-2.5 text-sm text-[#0D1B2A] dark:text-[#E0E1DD] focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:focus:ring-gray-400 resize-none flex-1"
+            />
+          </div>
+
+          <div className="flex justify-end">
+            <button
+              type="submit"
+              className="flex items-center gap-2 bg-green-500 hover:bg-green-600 transition text-white font-semibold text-sm px-6 py-2.5 rounded-lg"
+            >
+              Envoyer <GoArrowUpRight className="text-lg" />
+            </button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  )
 }
 
 export default Contact

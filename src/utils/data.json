@@ -1,0 +1,167 @@
+{
+  "projects": [
+    {
+      "nom": "Lydia",
+      "description": "Plateforme de gestion des établissements",
+      "logo": "lydia",
+      "url": "https://www.lydia-edu.com"
+    },
+    {
+      "nom": "Portfolio",
+      "description": "Réalisation d'un template de portfolio pour les jeunes freelance",
+      "logo": "logo1",
+      "url": "https://github.com/Ramseyn77/Portfolio"
+    },
+    {
+      "nom": "CDN (en cours)",
+      "description": "Conception d'une maquette pour le site du code du numérique du ministère du numérique et de la digitalisation",
+      "logo": "logo1",
+      "url": "https://www.figma.com/design/eEwQmnqc86ie638XxY1aGG/CDN?node-id=5-6&t=cHYwoG7oLB9YMWYs-1"
+    },
+    {
+      "nom": "HeartPrediction",
+      "description": "Création d'un model machine learning capable de dire si un individu est atteint avec d'une maladie cardiaque ou non",
+      "logo": "logo1",
+      "url": "https://github.com/Ramseyn77/Heart"
+    },
+    {
+      "nom": "CryptoFarm",
+      "description": "Définition de fonction capable d'encoder et décoder des données par algorithme de César, Vigénère et Affine",
+      "logo": "logo1",
+      "url": "https://github.com/Ramseyn77/Cryptographie"
+    },
+    {
+      "nom": "Houssing",
+      "description": "Création de modèle d’apprentissage (machine Learning) capable de prédire le prix d’une maison en Californie",
+      "logo": "logo1",
+      "url": "https://github.com/Ramseyn77/Houssing"
+    }
+  ],
+
+  "hero": {
+    "name": "MOUFOUTAOU",
+    "surname": "MOUFOUTAOU",
+    "role": "UX/UI Designer - FullStack Web/Mobile - IA Engineer",
+    "message": "Passionné par la conception d’expériences simples et impactantes, je conçois et développe des produits web et mobiles de bout en bout. Mon expertise couvre le design UX/UI, le développement Full‑Stack et l’intégration de fonctionnalités IA pour gagner en performance et en valeur métier. J’aime transformer des idées en interfaces élégantes, accessibles et performantes, avec une attention particulière aux détails et à la qualité du code. Ouvert aux missions et collaborations — parlons de votre projet."
+  },
+
+  "contacts": [
+    {
+      "logo": "FaWhatsapp",
+      "color": "iconColors.whatsapp",
+      "img": "logo2",
+      "name": "Sufyane Ramseyn",
+      "link": "https://wa.me/229484759044?text=Bonjour%2C%20je%20viens%20de%20votre%20portfolio%20et%20j’aimerais%20échanger%20avec%20vous."
+    },
+    {
+      "logo": "FaEnvelope",
+      "color": "iconColors.email",
+      "img": "logo2",
+      "name": "Sufyane Ramseyn",
+      "followers": "",
+      "link": "mailto:sufyaneramseyn@gmail.com"
+    },
+    {
+      "logo": "FaLinkedin",
+      "color": "iconColors.linkedin",
+      "img": "logo2",
+      "name": "Sufyane Ramseyn",
+      "link": "https://linkedin.com/in/sufyane-ramseyn-5a5285282"
+    },
+    {
+      "logo": "FaFacebook",
+      "color": "iconColors.facebook",
+      "img": "logo2",
+      "name": "Sufyane Ramseyn",
+      "followers": "",
+      "link": "https://www.facebook.com/sufyane.ramseyn"
+    }
+  ],
+
+  "experiences": [
+    {
+      "entreprise": "Ktalyz Conseils",
+      "poste": "Développeur web-mobile",
+      "periode": "Juin 2025 - Août 2025",
+      "logo": "../assets/img/omnitrade.jpg"
+    },
+    {
+      "entreprise": "OMNITRADE",
+      "poste": "Développeur Frontend",
+      "periode": "Juin 2025 - Août 2025",
+      "logo": "../assets/img/omnitrade.jpg"
+    },
+    {
+      "entreprise": "SoBAPS SA",
+      "poste": "Développeur Full Stack",
+      "periode": "Juin 2024 - Sep 2024",
+      "logo": "../assets/img/sobaps.jpeg"
+    },
+    {
+      "entreprise": "Edoutech",
+      "poste": "Stagiaire Développeur",
+      "periode": "Juin 2023 - Août 2023",
+      "logo": "../assets/img/edoutech.png"
+    }
+  ],
+
+  "certifs": [
+    {
+      "titre": "Analyse Informatique et programmation",
+      "description": "",
+      "organisation": "ENEAM",
+      "date": "2023 - 2024"
+    },
+    {
+      "titre": "Machine Learning",
+      "description": "introdution to machine learning - Intermidiate machine learning - Time series",
+      "organisation": "Kaggle",
+      "date": "2026"
+    },
+    {
+      "titre": "Deep Learning",
+      "description": "Computer vision",
+      "organisation": "Kaggle",
+      "date": "2026"
+    },
+    {
+      "titre": "Data Analyst",
+      "description": "Pandas - Feature Engineering",
+      "organisation": "kaggle",
+      "date": "2026"
+    }
+  ],
+
+  "blogs": [
+    {
+      "titre": "Pouquoi un bon site augmente la conversation ?",
+      "description": "Découvrez comment la conception de votre site web influe sur le comportement des utilisateurs et comment un site bien pensé peut booster le taux de conversion.",
+      "date": "Avril 2026",
+      "contenu": "Un site web bien conçu ne se limite pas à l’esthétique. Il améliore l’expérience utilisateur, réduit les frictions lors de la navigation et rassure les visiteurs. Un bon parcours utilisateur, des CTA clairs, une navigation intuitive et des éléments de confiance (témoignages, labels, sécurité) facilitent le passage à l’action. Des études montrent que chaque seconde de chargement supplémentaire peut faire baisser le taux de conversion. Ainsi, l’optimisation de l’interface et de la performance doit être au cœur du développement d’un site. Enfin, un site responsive, adapté à tout type d’appareil, garantit de ne perdre aucun prospect potentiel."
+    },
+    {
+      "titre": "SEO technique pour les devs",
+      "description": "Apprenez les techniques essentielles de SEO à implémenter dès la phase de développement pour améliorer la visibilité de vos sites sur les moteurs de recherche.",
+      "date": "Avril 2026",
+      "contenu": "Le SEO technique commence dès la structure du code : balises HTML correctes, arborescence logique des pages, temps de chargement optimisé. L’accessibilité (ARIA), la gestion des erreurs 404, et la présence d’un sitemap.xml sont des aspects critiques. Implémentez le lazy loading pour les images, les balises meta décrivant chaque page, et les attributs alt sur les médias. Minimisez le JavaScript bloquant, assurez la sécurité (HTTPS) et vérifiez l’indexabilité avec robots.txt. Plus tôt le SEO est intégré, plus il est efficace."
+    },
+    {
+      "titre": "Comment choisir un bon stack moderne",
+      "description": "Guide pour comprendre les critères à considérer dans le choix d’un stack technologique adapté à vos projets selon l’évolutivité et la communauté.",
+      "date": "Avril 2026",
+      "contenu": "Le choix d’un stack moderne dépasse les tendances : il doit répondre aux besoins du projet. Évaluez la scalabilité, la facilité d’apprentissage, la documentation, la communauté et l’intégration continue des outils. Node.js + React, par exemple, offre une grande flexibilité pour les applications web. Pour le backend, Python (Django, FastAPI) ou Node (Express) sont populaires. Privilégiez les technologies maintenues, testées sur le terrain et avec une bonne intégration CI/CD. Enfin, pensez sécurité et support des updates."
+    },
+    {
+      "titre": "Déploiement en production",
+      "description": "Étapes clés et bonnes pratiques pour réussir le déploiement d'une application web en environnement de production de manière fiable et sécurisée.",
+      "date": "Avril 2026",
+      "contenu": "Le déploiement d’une application web demande une planification précise : versionner le code, automatiser les tests, préparer l’environnement (variables, sécurité), et utiliser des outils de CI/CD (GitHub Actions, GitLab CI). Configurez le monitoring, les backups, et prévoyez de rollback en cas d’incident. Veillez à la sécurité (SSL/TLS), limitez les accès, et documentez chaque étape. Après le déploiement, contrôlez d’éventuels bugs ou ralentissements, et informez les utilisateurs si nécessaire."
+    },
+    {
+      "titre": "IA pour les apps webs",
+      "description": "Comment intégrer intelligemment l’intelligence artificielle dans vos applications web pour offrir une meilleure expérience et automatiser des tâches.",
+      "date": "Avril 2026",
+      "contenu": "L’intégration de l’IA commence par l’identification des besoins : automatisation (chatbot, recommandations), analyse de données, personnalisation de l’expérience utilisateur. Utilisez des API prêtes à l’emploi (OpenAI, TensorFlow.js) ou entraînez vos propres modèles. Pensez à la confidentialité : gérez avec soin les données utilisateurs. L’IA apporte des gains de productivité (filtrage automatique, génération de contenu) mais doit être expliquée à l’utilisateur pour instaurer la confiance. Testez régulièrement l’IA pour éviter les biais ou erreurs inattendus."
+    }
+  ]
+}

@@ -1,29 +1,31 @@
-import { React } from "react";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import Experience from "./components/Experience";
-import Project from "./components/Project";
-import Skills from "./components/Skills";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/home";
+import About from "./pages/about";
+import Portfolio from "./pages/portfolio";
+import Competence from "./pages/competence";
+import Service from "./pages/service";
+import Blog from "./pages/blog";
+import Contact from "./pages/contact";
 
 function App() {
-
   return (
-    <>
-      <div id="top" className="w-screen h-full flex flex-col items-center dark:bg-[#0D1B2A] py-4'">
-        <div className="md:w-[60%] h-full gap-6 flex flex-col ">
-          <Navbar />
-          <Hero />
-          <Experience />
-          <Project />
-          <Skills />
-          <Contact />
-          <Footer />
+    <BrowserRouter>
+      <div className="w-screen min-h-screen flex flex-col items-center dark:bg-[#0D1B2A]">
+        <div className="md:w-[85%] w-full flex flex-col">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/skills" element={<Competence />} />
+            <Route path="/services" element={<Service />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
         </div>
       </div>
-    </>
-  )
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

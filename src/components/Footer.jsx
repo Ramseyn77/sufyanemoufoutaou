@@ -25,11 +25,13 @@ const Footer = () => {
           <div className="flex flex-col gap-3">
             <h4 className="text-md font-semibold text-[#0D1B2A] dark:text-[#E0E1DD]">Navigation</h4>
             <nav className="flex flex-col gap-2 text-sm">
-              <a href="#presentation" className="text-[#1B263B] dark:text-gray-400 hover:text-indigo-500 dark:hover:text-blue-500 transition">Présentation</a>
-              <a href="#experiences" className="text-[#1B263B] dark:text-gray-400 hover:text-indigo-500 dark:hover:text-blue-500 transition">Expériences</a>
-              <a href="#projets" className="text-[#1B263B] dark:text-gray-400 hover:text-indigo-500 dark:hover:text-blue-500 transition">Projets</a>
-              <a href="#competences" className="text-[#1B263B] dark:text-gray-400 hover:text-indigo-500 dark:hover:text-blue-500 transition">Compétences</a>
-              <a href="#contact" className="text-[#1B263B] dark:text-gray-400 hover:text-indigo-500 dark:hover:text-blue-500 transition">Contact</a>
+              <a href="/" className="text-[#1B263B] dark:text-gray-400 hover:text-indigo-500 dark:hover:text-blue-500 transition">Acceuil</a>
+              <a href="/about" className="text-[#1B263B] dark:text-gray-400 hover:text-indigo-500 dark:hover:text-blue-500 transition">Expériences</a>
+              <a href="/portfolio" className="text-[#1B263B] dark:text-gray-400 hover:text-indigo-500 dark:hover:text-blue-500 transition">Projets</a>
+              <a href="/blog" className="text-[#1B263B] dark:text-gray-400 hover:text-indigo-500 dark:hover:text-blue-500 transition">Blog</a>
+              <a href="/skills" className="text-[#1B263B] dark:text-gray-400 hover:text-indigo-500 dark:hover:text-blue-500 transition">Compétences</a>
+              <a href="/services" className="text-[#1B263B] dark:text-gray-400 hover:text-indigo-500 dark:hover:text-blue-500 transition">Services</a>
+              <a href="/contact" className="text-[#1B263B] dark:text-gray-400 hover:text-indigo-500 dark:hover:text-blue-500 transition">Contact</a>
             </nav>
           </div>
 
