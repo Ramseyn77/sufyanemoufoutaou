@@ -131,7 +131,10 @@ const Contact = () => {
           <div className="flex justify-end">
             <button
               type="submit"
-              className="flex items-center gap-2 bg-green-500 hover:bg-green-600 transition text-white font-semibold text-sm px-6 py-2.5 rounded-lg"
+              style={{ backgroundColor: '#22c55e' }}
+              onMouseEnter={e => e.currentTarget.style.backgroundColor = '#16a34a'}
+              onMouseLeave={e => e.currentTarget.style.backgroundColor = '#22c55e'}
+              className="flex items-center gap-2 transition text-white font-semibold text-sm px-6 py-2.5 rounded-lg"
             >
               Envoyer <GoArrowUpRight className="text-lg" />
             </button>

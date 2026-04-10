@@ -129,9 +129,9 @@ const Home = () => {
 
         {/* Colonne droite — Projets récents */}
         <div className="lg:w-[35%] flex flex-col gap-4">
-          <div className="rounded-xl p-5 flex flex-col gap-4 h-full">
+          <div className="rounded-xl p-5 flex flex-col gap-6 h-full">
             <h2 className="text-xl font-bold text-[#0D1B2A] dark:text-[#E0E1DD]">Projet récents</h2>
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-8">
               {recentProjects.map(({ nom, description, image, logo, url }) => (
                 <a
                   key={nom}

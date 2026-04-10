@@ -2,44 +2,78 @@
   "projects": [
     {
       "nom": "Lydia",
-      "description": "Plateforme de gestion des établissements",
-      "logo": "lydia",
-      "url": "https://www.lydia-edu.com"
+      "description": "Plateforme de gestion des établissements scolaires — gestion des élèves, emplois du temps et notes.",
+      "image": "lydia",
+      "categorie": "Web",
+      "technologies": ["React", "Node.js", "MySQL"],
+      "online": true,
+      "url": "https://www.lydia-edu.com",
+      "visualisation": null
     },
     {
-      "nom": "Portfolio",
-      "description": "Réalisation d'un template de portfolio pour les jeunes freelance",
-      "logo": "logo1",
-      "url": "https://github.com/Ramseyn77/Portfolio"
+      "nom": "Alain Portfolio",
+      "description": "Développement d’un portfolio pour un agent de santé — design moderne et responsive.",
+      "image": "alain",
+      "categorie": "Web",
+      "technologies": ["React", "Tailwind"],
+      "online": true,
+      "url": "https://alain-assobga.vercel.app/",
+      "visualisation": null
     },
     {
-      "nom": "CDN (en cours)",
-      "description": "Conception d'une maquette pour le site du code du numérique du ministère du numérique et de la digitalisation",
-      "logo": "logo1",
-      "url": "https://www.figma.com/design/eEwQmnqc86ie638XxY1aGG/CDN?node-id=5-6&t=cHYwoG7oLB9YMWYs-1"
+      "nom": "Mon Portfolio",
+      "description": "Template de portfolio pour jeunes freelances, personnalisable et déployable facilement.",
+      "image": "logo1",
+      "categorie": "Web",
+      "technologies": ["React", "Tailwind", "Vite"],
+      "online": false,
+      "url": null,
+      "visualisation": "https://github.com/Ramseyn77/Portfolio"
+    },
+    {
+      "nom": "CDN",
+      "description": "Maquette pour le site du Code du Numérique — ministère du numérique et de la digitalisation.",
+      "image": "logo1",
+      "categorie": "Design",
+      "technologies": ["Figma", "UX/UI"],
+      "online": false,
+      "url": null,
+      "visualisation": "https://www.figma.com/design/eEwQmnqc86ie638XxY1aGG/CDN?node-id=5-6&t=cHYwoG7oLB9YMWYs-1"
     },
     {
       "nom": "HeartPrediction",
-      "description": "Création d'un model machine learning capable de dire si un individu est atteint avec d'une maladie cardiaque ou non",
-      "logo": "logo1",
-      "url": "https://github.com/Ramseyn77/Heart"
-    },
-    {
-      "nom": "CryptoFarm",
-      "description": "Définition de fonction capable d'encoder et décoder des données par algorithme de César, Vigénère et Affine",
-      "logo": "logo1",
-      "url": "https://github.com/Ramseyn77/Cryptographie"
+      "description": "Modèle ML capable de prédire si un individu est atteint d’une maladie cardiaque.",
+      "image": "logo1",
+      "categorie": "IA & ML",
+      "technologies": ["Python", "Scikit-learn", "Pandas"],
+      "online": false,
+      "url": null,
+      "visualisation": "https://github.com/Ramseyn77/Heart"
     },
     {
       "nom": "Houssing",
-      "description": "Création de modèle d’apprentissage (machine Learning) capable de prédire le prix d’une maison en Californie",
-      "logo": "logo1",
-      "url": "https://github.com/Ramseyn77/Houssing"
+      "description": "Modèle d’apprentissage capable de prédire le prix d’une maison en Californie.",
+      "image": "logo1",
+      "categorie": "IA & ML",
+      "technologies": ["Python", "Scikit-learn", "TensorFlow"],
+      "online": false,
+      "url": null,
+      "visualisation": "https://github.com/Ramseyn77/Houssing"
+    },
+    {
+      "nom": "CryptoFarm",
+      "description": "Fonctions d’encodage et décodage par algorithmes de César, Vigénère et Affine.",
+      "image": "logo1",
+      "categorie": "Autre",
+      "technologies": ["Python"],
+      "online": false,
+      "url": null,
+      "visualisation": "https://github.com/Ramseyn77/Cryptographie"
     }
   ],
 
   "hero": {
-    "name": "MOUFOUTAOU",
+    "name": "Sufyane",
     "surname": "MOUFOUTAOU",
     "role": "UX/UI Designer - FullStack Web/Mobile - IA Engineer",
     "message": "Passionné par la conception d’expériences simples et impactantes, je conçois et développe des produits web et mobiles de bout en bout. Mon expertise couvre le design UX/UI, le développement Full‑Stack et l’intégration de fonctionnalités IA pour gagner en performance et en valeur métier. J’aime transformer des idées en interfaces élégantes, accessibles et performantes, avec une attention particulière aux détails et à la qualité du code. Ouvert aux missions et collaborations — parlons de votre projet."
@@ -132,6 +166,65 @@
     }
   ],
 
+  "skills": [
+    {
+      "categorie": "Front-End",
+      "couleur": "blue",
+      "techs": [
+        { "nom": "JavaScript", "img": "js", "niveau": 90 },
+        { "nom": "TypeScript", "img": "ts", "niveau": 75 },
+        { "nom": "React", "img": "react", "niveau": 90 },
+        { "nom": "Next.js", "img": "next", "niveau": 70 },
+        { "nom": "Vue.js", "img": "vue", "niveau": 65 },
+        { "nom": "Angular", "img": "angular", "niveau": 60 },
+        { "nom": "AdonisJS", "img": "adonis", "niveau": 65 },
+        { "nom": "React Native", "img": "reactnative", "niveau": 72 }
+      ]
+    },
+    {
+      "categorie": "Back-End",
+      "couleur": "green",
+      "techs": [
+        { "nom": "Node.js", "img": "node", "niveau": 82 },
+        { "nom": "PHP", "img": "php", "niveau": 75 },
+        { "nom": "Laravel", "img": "laravel", "niveau": 70 },
+        { "nom": "Dart", "img": "dart", "niveau": 55 },
+        { "nom": "MySQL", "img": "mysql", "niveau": 78 }
+      ]
+    },
+    {
+      "categorie": "IA & Logiciels",
+      "couleur": "purple",
+      "techs": [
+        { "nom": "Python", "img": "python", "niveau": 80 },
+        { "nom": "TensorFlow", "img": "tensorflow", "niveau": 65 },
+        { "nom": "Scikit-learn", "img": "sklearn", "niveau": 70 },
+        { "nom": "Figma", "img": "figma", "niveau": 85 },
+        { "nom": "Canva", "img": "canva", "niveau": 80 },
+        { "nom": "Postman", "img": "postman", "niveau": 75 },
+        { "nom": "Insomnia", "img": "insomnia", "niveau": 70 }
+      ]
+    }
+  ],
+
+  "valeurs": [
+    {
+      "titre": "Orientation résultats",
+      "icone": "TrendingUp",
+      "description": "Je livre des solutions qui fonctionnent, dans les délais, avec une attention constante à la qualité et à la performance."
+    },
+    {
+      "titre": "Collaboration & écoute",
+      "icone": "Users",
+      "description": "Je travaille en proximité avec mes clients pour comprendre leurs vrais besoins avant d'écrire la moindre ligne de code."
+    },
+    {
+      "titre": "Amélioration continue",
+      "icone": "RefreshCw",
+      "description": "Je veille à rester à jour sur les technologies modernes pour apporter les meilleures solutions à chaque projet."
+    }
+  ],
+
   "blogs": [
     {
       "titre": "Pouquoi un bon site augmente la conversation ?",
@@ -163,5 +256,42 @@
       "date": "Avril 2026",
       "contenu": "L’intégration de l’IA commence par l’identification des besoins : automatisation (chatbot, recommandations), analyse de données, personnalisation de l’expérience utilisateur. Utilisez des API prêtes à l’emploi (OpenAI, TensorFlow.js) ou entraînez vos propres modèles. Pensez à la confidentialité : gérez avec soin les données utilisateurs. L’IA apporte des gains de productivité (filtrage automatique, génération de contenu) mais doit être expliquée à l’utilisateur pour instaurer la confiance. Testez régulièrement l’IA pour éviter les biais ou erreurs inattendus."
     }
-  ]
+  ],
+
+  "services": {
+    "hero": {
+      "titre": "Des solutions digitales sur mesure pour transformer vos idées en projets performants",
+      "sousTitre": "Je conçois des sites web, applications et solutions intelligentes optimisées pour la performance, sécurité et la croissance"
+    },
+    "cas": [
+      "Votre site est lent et peu professionnel",
+      "Vous voulez lancer une application moderne",
+      "Vous avez besoin d'automatiser votre activité",
+      "Vous cherchez un développeur IA pour votre projet",
+      "Votre plateforme manque de performance",
+      "Vous souhaitez un design soigné et impactant"
+    ],
+    "process": [
+      {
+        "numero": "01",
+        "titre": "Brief & Analyse",
+        "description": "Comprendre vos besoins, vos objectifs et votre contexte métier pour cadrer le projet."
+      },
+      {
+        "numero": "02",
+        "titre": "Design & Maquette",
+        "description": "Conception UX/UI, wireframes et maquettes Figma avant tout développement."
+      },
+      {
+        "numero": "03",
+        "titre": "Développement",
+        "description": "Intégration frontend, backend, tests et mise en place des fonctionnalités IA si nécessaire."
+      },
+      {
+        "numero": "04",
+        "titre": "Livraison & Support",
+        "description": "Déploiement en production, formation si besoin et support technique post-lancement."
+      }
+    ]
+  }
 }
