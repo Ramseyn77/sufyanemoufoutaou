@@ -92,25 +92,31 @@ const Portfolio = () => {
                       href={project.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1 bg-amber-400 hover:bg-amber-500 transition text-white text-xs font-semibold px-4 py-2 rounded-lg"
+                      className="flex items-center bg-amber-400 hover:bg-amber-500 transition rounded-lg"
                     >
-                      Voir le site <GoArrowUpRight />
+                      <div className='flex text-white text-xs font-semibold px-4 py-2 items-center gap-1'>
+                        Voir le site <GoArrowUpRight />
+                      </div>
                     </a>
                   ) : project.visualisation ? (
                     <a
                       href={project.visualisation}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1 bg-indigo-500 hover:bg-indigo-600 transition text-white text-xs font-semibold px-4 py-2 rounded-lg"
+                      className="flex items-center  bg-indigo-500 hover:bg-indigo-600 transition text-white text-xs font-semibold px-4 py-2 rounded-lg"
                     >
-                      Visualisation <FaEye />
+                      <div className='flex text-white gap-1 items-center'>
+                        Visualisation <FaEye />
+                      </div>
                     </a>
                   ) : null}
                   <Link
                     to="/contact"
                     className="flex items-center justify-center gap-1 bg-green-500 hover:bg-green-600 transition text-white text-xs font-semibold px-4 py-2 rounded-lg"
                   >
-                    Contact
+                    <div className='text-white text-xs font-semibold'>
+                      Contact
+                    </div>
                   </Link>
                 </div>
               </div>

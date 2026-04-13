@@ -34,20 +34,27 @@ const imageMap = {
   insomnia: insomniaImg, reactnative: reactNativeImg,
 }
 
-const catIcon = { 'Front-End': <LucideLaptop className="w-5 h-5" />, 'Back-End': <Server className="w-5 h-5" />, 'IA & Logiciels': <Cpu className="w-5 h-5" /> }
+const iconMap = {
+  laptop: <LucideLaptop className="w-5 h-5" />,
+  server: <Server className="w-5 h-5" />,
+  cpu: <Cpu className="w-5 h-5" />,
+}
 
 const catStyle = {
-  blue:   { color: 'text-blue-400',   bg: 'bg-blue-400/10',   border: 'border-blue-400/30',   bar: 'from-blue-500 to-blue-400' },
-  green:  { color: 'text-green-400',  bg: 'bg-green-400/10',  border: 'border-green-400/30',  bar: 'from-green-500 to-green-400' },
+  blue: { color: 'text-blue-400', bg: 'bg-blue-400/10', border: 'border-blue-400/30', bar: 'from-blue-500 to-blue-400' },
+  green: { color: 'text-green-400', bg: 'bg-green-400/10', border: 'border-green-400/30', bar: 'from-green-500 to-green-400' },
   purple: { color: 'text-purple-400', bg: 'bg-purple-400/10', border: 'border-purple-400/30', bar: 'from-purple-500 to-purple-400' },
 }
 
-const levelLabel = (n) => n >= 85 ? 'Expert' : n >= 70 ? 'Avancé' : n >= 55 ? 'Intermédiaire' : 'Débutant'
+const levelLabel = (n, levels) => (
+  n >= 85 ? levels.expert : n >= 70 ? levels.advanced : n >= 55 ? levels.intermediate : levels.beginner
+)
 const levelColor = (n) => n >= 85 ? 'text-green-400' : n >= 70 ? 'text-blue-400' : n >= 55 ? 'text-amber-400' : 'text-gray-400'
 
 const Competence = () => {
   const [active, setActive] = useState(0)
-  const current = data.skills[active]
+  const { competencePage, skills, certifs } = data
+  const current = skills[active]
   const style = catStyle[current.couleur]
 
   return (
@@ -55,18 +62,16 @@ const Competence = () => {
       <Navbar />
 
       <div className="px-4 py-6 flex flex-col gap-8">
-
-        {/* Header */}
         <div className="flex flex-col gap-1">
-          <h1 className="text-2xl font-bold text-[#0D1B2A] dark:text-[#E0E1DD]">Compétences</h1>
-          <p className="text-sm text-gray-500 dark:text-gray-400">Stack technique — Front-End, Back-End & IA</p>
+          <h1 className="text-2xl font-bold text-[#0D1B2A] dark:text-[#E0E1DD]">{competencePage.titre}</h1>
+          <p className="text-sm text-gray-500 dark:text-gray-400">{competencePage.sousTitre}</p>
         </div>
 
-        {/* Tabs */}
         <div className="flex flex-row gap-3 flex-wrap">
-          {data.skills.map((cat, i) => {
+          {skills.map((cat, i) => {
             const s = catStyle[cat.couleur]
             const isActive = active === i
+
             return (
               <button
                 key={cat.categorie}
@@ -77,19 +82,20 @@ const Competence = () => {
                     : 'bg-[#f3f4f6] dark:bg-[#1B263B] text-gray-500 dark:text-[#8CA5C4] border-transparent hover:border-gray-300 dark:hover:border-[#253450]'
                 }`}
               >
-                {catIcon[cat.categorie]}
+                {iconMap[cat.icone]}
                 {cat.categorie}
               </button>
             )
           })}
         </div>
 
-        {/* Grille de skills actifs */}
         <div className={`rounded-2xl border p-6 ${style.bg} ${style.border}`}>
           <div className={`flex items-center gap-2 mb-5 font-bold ${style.color}`}>
-            {catIcon[current.categorie]}
+            {iconMap[current.icone]}
             <span className="text-lg">{current.categorie}</span>
-            <span className="ml-auto text-xs opacity-60 font-normal">{current.techs.length} technologies</span>
+            <span className="ml-auto text-xs opacity-60 font-normal">
+              {current.techs.length} {competencePage.technologiesLabel}
+            </span>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
             {current.techs.map((tech) => (
@@ -100,7 +106,7 @@ const Competence = () => {
                     <div className="flex justify-between items-center">
                       <span className="text-xs font-bold text-[#0D1B2A] dark:text-[#E0E1DD] truncate">{tech.nom}</span>
                       <span className={`text-[10px] font-semibold ml-2 flex-shrink-0 ${levelColor(tech.niveau)}`}>
-                        {levelLabel(tech.niveau)}
+                        {levelLabel(tech.niveau, competencePage.levels)}
                       </span>
                     </div>
                     <div className="w-full bg-gray-200 dark:bg-[#1B263B] rounded-full h-1.5 mt-1.5">
@@ -116,10 +122,10 @@ const Competence = () => {
           </div>
         </div>
 
-        {/* Vue synthétique */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {data.skills.map((cat, i) => {
+          {skills.map((cat, i) => {
             const s = catStyle[cat.couleur]
+
             return (
               <button
                 key={cat.categorie}
@@ -127,9 +133,9 @@ const Competence = () => {
                 className={`flex flex-col gap-4 rounded-2xl border p-5 text-left transition hover:scale-[1.01] ${s.bg} ${s.border}`}
               >
                 <div className={`flex items-center gap-2 font-bold ${s.color}`}>
-                  {catIcon[cat.categorie]}
+                  {iconMap[cat.icone]}
                   <span>{cat.categorie}</span>
-                  <span className="ml-auto text-xs opacity-60 font-normal">{cat.techs.length} techs</span>
+                  <span className="ml-auto text-xs opacity-60 font-normal">{cat.techs.length} {competencePage.techsLabel}</span>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {cat.techs.map((tech) => (
@@ -144,14 +150,13 @@ const Competence = () => {
           })}
         </div>
 
-        {/* Certifications */}
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-2">
             <Award className="w-5 h-5 text-amber-400" />
-            <h2 className="text-lg font-bold text-[#0D1B2A] dark:text-[#E0E1DD]">Certifications</h2>
+            <h2 className="text-lg font-bold text-[#0D1B2A] dark:text-[#E0E1DD]">{competencePage.certificationsTitre}</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {data.certifs.map((certif, i) => (
+            {certifs.map((certif, i) => (
               <div key={i} className="flex flex-col gap-2 bg-[#f3f4f6] dark:bg-[#1B263B] rounded-2xl p-4 border border-amber-400/20">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-bold text-amber-400 uppercase tracking-wide">{certif.organisation}</span>
@@ -165,7 +170,6 @@ const Competence = () => {
             ))}
           </div>
         </div>
-
       </div>
 
       <Footer />

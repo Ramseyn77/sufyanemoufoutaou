@@ -1,19 +1,44 @@
 import React, { useState } from 'react'
 import logo2 from "../assets/img/logo2.png"
-import { FaWhatsapp, FaLinkedin, FaFacebook, FaEnvelope } from 'react-icons/fa'
+import { FaWhatsapp, FaLinkedin, FaFacebook } from 'react-icons/fa'
 import { GoArrowUpRight } from 'react-icons/go'
 import data from '../utils/data.json'
 
+const MailIcon = ({ className = '' }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="mailIconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#4285F4" />
+        <stop offset="35%" stopColor="#34A853" />
+        <stop offset="68%" stopColor="#FBBC05" />
+        <stop offset="100%" stopColor="#EA4335" />
+      </linearGradient>
+    </defs>
+    <path
+      d="M4 6.5h16a1.5 1.5 0 0 1 1.5 1.5v8A1.5 1.5 0 0 1 20 17.5H4A1.5 1.5 0 0 1 2.5 16V8A1.5 1.5 0 0 1 4 6.5Z"
+      stroke="url(#mailIconGradient)"
+      strokeWidth="1.8"
+      strokeLinejoin="round"
+    />
+    <path
+      d="m4 8 8 5.5L20 8"
+      stroke="url(#mailIconGradient)"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+)
+
 const iconMap = {
   FaWhatsapp: FaWhatsapp,
-  FaEnvelope: FaEnvelope,
+  FaEnvelope: MailIcon,
   FaLinkedin: FaLinkedin,
   FaFacebook: FaFacebook,
 }
 
 const iconColors = {
   FaWhatsapp: '#25D366',
-  FaEnvelope: '#EA4335',
   FaLinkedin: '#0077B5',
   FaFacebook: '#1877F3',
 }
@@ -42,7 +67,7 @@ const Contact = () => {
         <div className="lg:w-[40%] bg-[#f3f4f6] dark:bg-[#1B263B] rounded-2xl p-6 flex flex-col gap-6">
           <div className="flex items-center gap-3">
             <div className="bg-white dark:bg-[#0D1B2A] rounded-full p-2">
-              <FaEnvelope className="text-lg text-[#1B263B] dark:text-[#8CA5C4]" />
+              <MailIcon className="w-[18px] h-[18px]" />
             </div>
             <h2 className="text-3xl font-bold text-[#0D1B2A] dark:text-[#E0E1DD]">Parlons en ...</h2>
           </div>
@@ -51,6 +76,7 @@ const Contact = () => {
             {contacts.map(({ logo, img, name, followers, link }) => {
               const Icon = iconMap[logo]
               const color = iconColors[logo]
+              const isMail = logo === 'FaEnvelope'
               return (
                 <a
                   key={logo + name}
@@ -62,7 +88,7 @@ const Contact = () => {
                   <div className="relative flex-shrink-0">
                     <img src={img} alt="avatar" className="h-10 w-10 rounded-full object-cover" />
                     <span className="absolute -bottom-1 -right-1 bg-white dark:bg-[#1B263B] rounded-full p-0.5 border border-gray-200 dark:border-[#253450] flex items-center justify-center">
-                      <Icon className="w-3 h-3" style={{ color }} />
+                      {isMail ? <Icon className="w-3 h-3" /> : <Icon className="w-3 h-3" style={{ color }} />}
                     </span>
                   </div>
                   <div className="flex flex-col flex-1 min-w-0">

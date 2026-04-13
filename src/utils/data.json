@@ -166,9 +166,24 @@
     }
   ],
 
+  "competencePage": {
+    "titre": "Compétences",
+    "sousTitre": "Stack technique — Front-End, Back-End & IA",
+    "certificationsTitre": "Certifications",
+    "technologiesLabel": "technologies",
+    "techsLabel": "techs",
+    "levels": {
+      "expert": "Expert",
+      "advanced": "Avancé",
+      "intermediate": "Intermédiaire",
+      "beginner": "Débutant"
+    }
+  },
+
   "skills": [
     {
       "categorie": "Front-End",
+      "icone": "laptop",
       "couleur": "blue",
       "techs": [
         { "nom": "JavaScript", "img": "js", "niveau": 90 },
@@ -183,6 +198,7 @@
     },
     {
       "categorie": "Back-End",
+      "icone": "server",
       "couleur": "green",
       "techs": [
         { "nom": "Node.js", "img": "node", "niveau": 82 },
@@ -194,14 +210,15 @@
     },
     {
       "categorie": "IA & Logiciels",
+      "icone": "cpu",
       "couleur": "purple",
       "techs": [
         { "nom": "Python", "img": "python", "niveau": 80 },
         { "nom": "TensorFlow", "img": "tensorflow", "niveau": 65 },
         { "nom": "Scikit-learn", "img": "sklearn", "niveau": 70 },
-        { "nom": "Figma", "img": "figma", "niveau": 85 },
-        { "nom": "Canva", "img": "canva", "niveau": 80 },
-        { "nom": "Postman", "img": "postman", "niveau": 75 },
+        { "nom": "Figma", "img": "figma", "niveau": 80 },
+        { "nom": "Canva", "img": "canva", "niveau": 76 },
+        { "nom": "Postman", "img": "postman", "niveau": 50 },
         { "nom": "Insomnia", "img": "insomnia", "niveau": 70 }
       ]
     }

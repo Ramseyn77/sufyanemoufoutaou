@@ -8,12 +8,28 @@ import omnitradeImg from '../assets/img/omnitrade.jpg'
 import sobapsImg from '../assets/img/sobaps.jpeg'
 import edoutechImg from '../assets/img/edoutech.png'
 import { GoArrowUpRight } from 'react-icons/go'
-import { TrendingUp, Users, RefreshCw } from 'lucide-react'
+import { TrendingUp, Users, RefreshCw, GraduationCap, BadgeCheck } from 'lucide-react'
 
 const valeurIconMap = {
   TrendingUp: <TrendingUp className="w-5 h-5 text-indigo-500 dark:text-blue-400" />,
   Users:      <Users      className="w-5 h-5 text-indigo-500 dark:text-blue-400" />,
   RefreshCw:  <RefreshCw  className="w-5 h-5 text-indigo-500 dark:text-blue-400" />,
+}
+
+const getCertifIcon = (organisation) => {
+  const org = organisation?.toLowerCase()
+
+  if (org === 'kaggle') {
+    return {
+      containerClassName: 'bg-emerald-500',
+      icon: <BadgeCheck className="w-5 h-5 text-white" />,
+    }
+  }
+
+  return {
+    containerClassName: 'bg-amber-400',
+    icon: <GraduationCap className="w-5 h-5 text-white" />,
+  }
 }
 
 const logoMap = {
@@ -69,24 +85,26 @@ const About = () => {
           <div className="lg:w-[40%] flex flex-col gap-4 bg-[#f3f4f6] dark:bg-[#1B263B] rounded-2xl p-5">
             <h2 className="text-lg font-bold text-[#0D1B2A] dark:text-[#E0E1DD]">Formations et certifications</h2>
             <div className="flex flex-col gap-3">
-              {data.certifs.map((certif, i) => (
-                <div key={i} className="flex flex-row items-center gap-4 bg-white dark:bg-[#0D1B2A] rounded-xl px-4 py-3">
-                  <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-amber-400 flex items-center justify-center">
-                    <svg viewBox="0 0 24 24" fill="white" className="w-5 h-5">
-                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-                    </svg>
-                  </div>
-                  <div className="flex flex-col flex-1 min-w-0">
-                    <span className="text-sm font-bold text-[#0D1B2A] dark:text-[#E0E1DD] truncate">
-                      {certif.titre}
-                    </span>
-                    <div className="flex justify-between items-center">
-                      <span className="text-xs text-gray-500 dark:text-gray-400">{certif.organisation}</span>
-                      <span className="text-[10px] text-gray-400 ml-2 flex-shrink-0">{certif.date}</span>
+              {data.certifs.map((certif, i) => {
+                const { containerClassName, icon } = getCertifIcon(certif.organisation)
+
+                return (
+                  <div key={i} className="flex flex-row items-center gap-4 bg-white dark:bg-[#0D1B2A] rounded-xl px-4 py-3">
+                    <div className={`flex-shrink-0 w-9 h-9 rounded-lg ${containerClassName} flex items-center justify-center`}>
+                      {icon}
+                    </div>
+                    <div className="flex flex-col flex-1 min-w-0">
+                      <span className="text-sm font-bold text-[#0D1B2A] dark:text-[#E0E1DD] truncate">
+                        {certif.titre}
+                      </span>
+                      <div className="flex justify-between items-center">
+                        <span className="text-xs text-gray-500 dark:text-gray-400">{certif.organisation}</span>
+                        <span className="text-[10px] text-gray-400 ml-2 flex-shrink-0">{certif.date}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
           </div>
 
