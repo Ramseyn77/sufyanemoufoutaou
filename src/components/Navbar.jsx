@@ -13,11 +13,18 @@ const navLinks = [
   { to: '/contact', label: 'Contact' },
 ]
 
-const linkClass = ({ isActive }) =>
-  `text-sm font-medium transition hover:text-indigo-500 dark:hover:text-blue-400 ${
+const desktopLinkClass = ({ isActive }) =>
+  `rounded-full px-3 py-2 text-sm font-medium transition ${
     isActive
-      ? 'text-indigo-600 dark:text-blue-400 font-semibold'
-      : 'text-[#1B263B] dark:text-[#8CA5C4]'
+      ? 'bg-indigo-50 text-indigo-600 shadow-sm dark:bg-[#1B263B] dark:text-blue-400'
+      : 'text-[#1B263B] dark:text-[#8CA5C4] hover:bg-gray-100 hover:text-indigo-500 dark:hover:bg-[#1B263B] dark:hover:text-blue-400'
+  }`
+
+const mobileLinkClass = ({ isActive }) =>
+  `rounded-xl border-l-2 px-3 py-2 text-sm font-medium transition ${
+    isActive
+      ? 'border-indigo-500 bg-indigo-50 text-indigo-600 dark:border-blue-400 dark:bg-[#1B263B] dark:text-blue-400'
+      : 'border-transparent text-[#1B263B] dark:text-[#8CA5C4] hover:bg-gray-100 hover:text-indigo-500 dark:hover:bg-[#1B263B] dark:hover:text-blue-400'
   }`
 
 const Navbar = () => {
@@ -37,7 +44,7 @@ const Navbar = () => {
         {/* Liens de navigation */}
         <div className="flex flex-row items-center gap-6">
           {navLinks.map(({ to, label }) => (
-            <NavLink key={to} to={to} end={to === '/'} className={linkClass}>
+            <NavLink key={to} to={to} end={to === '/'} className={desktopLinkClass}>
               {label}
             </NavLink>
           ))}
@@ -83,7 +90,7 @@ const Navbar = () => {
                     to={to}
                     end={to === '/'}
                     onClick={() => setMenuOpen(false)}
-                    className={linkClass}
+                    className={mobileLinkClass}
                   >
                     {label}
                   </NavLink>

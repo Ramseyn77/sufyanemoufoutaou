@@ -24,8 +24,8 @@
       "nom": "Mon Portfolio",
       "description": "Template de portfolio pour jeunes freelances, personnalisable et déployable facilement.",
       "image": "logo1",
-      "categorie": "Web",
-      "technologies": ["React", "Tailwind", "Vite"],
+      "categorie": "Design",
+      "technologies": ["Figma", "UX/UI"],
       "online": false,
       "url": null,
       "visualisation": "https://github.com/Ramseyn77/Portfolio"
