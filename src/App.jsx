@@ -11,7 +11,7 @@ import Contact from "./pages/contact";
 function App() {
   return (
     <BrowserRouter>
-      <div className="w-screen min-h-screen flex flex-col items-center dark:bg-[#0D1B2A]">
+      <div className="w-screen min-h-screen flex flex-col items-center bg-[var(--color-light-surface)] dark:bg-[var(--color-dark)]">
         <div className="md:w-[85%] w-full flex flex-col">
           <Routes>
             <Route path="/" element={<Home />} />

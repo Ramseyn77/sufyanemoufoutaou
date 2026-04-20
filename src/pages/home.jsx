@@ -15,17 +15,17 @@ const skills = [
 
 const services = [
   {
-    icon: <FaGlobe className="text-3xl text-blue-400" />,
+    icon: <FaGlobe className="text-3xl text-[var(--color-accent)]" />,
     title: 'Développement Web Full-Stack',
     description: 'Conception et développement d\'applications web performantes de bout en bout, du design à la mise en production.',
   },
   {
-    icon: <FaMobileAlt className="text-3xl text-blue-400" />,
+    icon: <FaMobileAlt className="text-3xl text-[var(--color-accent)]" />,
     title: 'Développement Mobile',
     description: 'Création d\'applications mobiles cross-platform avec React Native, adaptées à vos besoins métier.',
   },
   {
-    icon: <FaPaintBrush className="text-3xl text-blue-400" />,
+    icon: <FaPaintBrush className="text-3xl text-[var(--color-accent)]" />,
     title: 'Design UX/UI',
     description: 'Conception d\'interfaces élégantes et accessibles centrées sur l\'expérience utilisateur avec Figma.',
   },
@@ -50,27 +50,27 @@ const recentProjects = [
 
 const Home = () => {
   return (
-    <div className="flex flex-col w-full min-h-screen dark:bg-[#0D1B2A]">
+    <div className="flex flex-col w-full min-h-screen dark:bg-[var(--color-dark)]">
       <Navbar />
 
       {/* Hero */}
-      <div className="flex flex-row items-center justify-between w-full px-4 py-6 gap-4">
-        <div className="italic font-mono font-bold text-[#0D1B2A] dark:text-white text-3xl md:text-4xl flex-1">
+      <div className="flex flex-col items-start w-full px-4 py-6 gap-4 md:flex-row md:items-center md:justify-between">
+        <div className="italic font-mono font-bold text-[#0D1B2A] dark:text-white text-2xl sm:text-3xl md:text-4xl flex-1">
           Sufyane MOUFOUTAOU
         </div>
-        <div className="flex flex-row items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3 w-full md:w-auto">
           <Link to="/contact">
-            <span className="bg-amber-400 hover:bg-amber-500 transition px-4 py-2 text-sm text-white rounded-md font-medium">
+            <span className="inline-flex justify-center bg-[var(--color-warm)] hover:bg-[#EA9309] transition px-4 py-2 text-sm text-white rounded-md font-medium min-w-[110px]">
               Contact
             </span>
           </Link>
           <Link to="/services">
-            <span className="bg-amber-400 hover:bg-amber-500 transition px-4 py-2 text-sm text-white rounded-md font-medium">
+            <span className="inline-flex justify-center bg-[var(--color-warm)] hover:bg-[#EA9309] transition px-4 py-2 text-sm text-white rounded-md font-medium min-w-[110px]">
               Services
             </span>
           </Link>
           <Link to="/portfolio">
-            <span className="bg-amber-400 hover:bg-amber-500 transition px-4 py-2 text-sm text-white rounded-md font-medium">
+            <span className="inline-flex justify-center bg-[var(--color-warm)] hover:bg-[#EA9309] transition px-4 py-2 text-sm text-white rounded-md font-medium min-w-[110px]">
               Portfolio
             </span>
           </Link>
@@ -86,11 +86,11 @@ const Home = () => {
           {/* Compétences clées */}
           <div className="rounded-xl p-5 flex flex-col gap-4">
             <h2 className="text-xl font-bold text-[#0D1B2A] dark:text-[#E0E1DD]">Compétences clées</h2>
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               {skills.map(({ label, icon }) => (
                 <div
                   key={label}
-                  className="flex flex-col items-center gap-3 bg-[#f3f4f6] dark:bg-[#1B263B] rounded-xl p-4 hover:scale-105 transition cursor-default"
+                  className="flex flex-col items-center gap-3 bg-[#f3f4f6] dark:bg-[#1B263B] rounded-xl p-4 hover:scale-[1.02] transition cursor-default"
                 >
                   <div className="bg-white dark:bg-[#0D1B2A] rounded-xl p-4">
                     {icon}
@@ -99,7 +99,7 @@ const Home = () => {
                 </div>
               ))}
             </div>
-            <Link to="/skills" className="text-xs text-indigo-500 dark:text-blue-400 hover:underline self-end flex items-center gap-1">
+            <Link to="/skills" className="text-xs text-[var(--color-accent)] hover:underline self-end flex items-center gap-1">
               Voir toutes <GoArrowUpRight />
             </Link>
           </div>
@@ -121,14 +121,14 @@ const Home = () => {
                 </div>
               ))}
             </div>
-            <Link to="/services" className="text-xs text-indigo-500 dark:text-blue-400 hover:underline self-end flex items-center gap-1">
+            <Link to="/services" className="text-xs text-[var(--color-accent)] hover:underline self-end flex items-center gap-1">
               Voir tous <GoArrowUpRight />
             </Link>
           </div>
         </div>
 
         {/* Colonne droite — Projets récents */}
-        <div className="lg:w-[35%] flex flex-col gap-4">
+        <div className="w-full lg:w-[35%] flex flex-col gap-4">
           <div className="rounded-xl p-5 flex flex-col gap-6 h-full">
             <h2 className="text-xl font-bold text-[#0D1B2A] dark:text-[#E0E1DD]">Projet récents</h2>
             <div className="flex flex-col gap-8">
@@ -155,7 +155,7 @@ const Home = () => {
                 </a>
               ))}
             </div>
-            <Link to="/portfolio" className="text-xs text-indigo-500 dark:text-blue-400 hover:underline self-end flex items-center gap-1">
+            <Link to="/portfolio" className="text-xs text-[var(--color-accent)] hover:underline self-end flex items-center gap-1">
               Voir tous <GoArrowUpRight />
             </Link>
           </div>

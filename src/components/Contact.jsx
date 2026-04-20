@@ -64,12 +64,12 @@ const Contact = () => {
       <div className="flex flex-col lg:flex-row gap-6 w-full">
 
         {/* Gauche — Parlons en */}
-        <div className="lg:w-[40%] bg-[#f3f4f6] dark:bg-[#1B263B] rounded-2xl p-6 flex flex-col gap-6">
+        <div className="lg:w-[40%] bg-[var(--color-light-panel)] dark:bg-[var(--color-dark-surface)] rounded-2xl p-6 flex flex-col gap-6">
           <div className="flex items-center gap-3">
-            <div className="bg-white dark:bg-[#0D1B2A] rounded-full p-2">
+            <div className="bg-white dark:bg-[var(--color-dark)] rounded-full p-2">
               <MailIcon className="w-[18px] h-[18px]" />
             </div>
-            <h2 className="text-3xl font-bold text-[#0D1B2A] dark:text-[#E0E1DD]">Parlons en ...</h2>
+            <h2 className="text-3xl font-bold text-[var(--color-text-dark)] dark:text-[var(--color-text-light)]">Parlons en ...</h2>
           </div>
 
           <div className="flex flex-col gap-8">
@@ -83,21 +83,21 @@ const Contact = () => {
                   href={link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-row items-center gap-3 bg-white dark:bg-[#0D1B2A] rounded-xl px-4 py-3 hover:scale-[1.02] transition group"
+                  className="flex flex-row items-center gap-3 bg-white dark:bg-[var(--color-dark)] rounded-xl px-4 py-3 hover:scale-[1.02] transition group"
                 >
                   <div className="relative flex-shrink-0">
                     <img src={img} alt="avatar" className="h-10 w-10 rounded-full object-cover" />
-                    <span className="absolute -bottom-1 -right-1 bg-white dark:bg-[#1B263B] rounded-full p-0.5 border border-gray-200 dark:border-[#253450] flex items-center justify-center">
+                    <span className="absolute -bottom-1 -right-1 bg-white dark:bg-[var(--color-dark-surface)] rounded-full p-0.5 border border-gray-200 dark:border-[var(--color-dark-border)] flex items-center justify-center">
                       {isMail ? <Icon className="w-3 h-3" /> : <Icon className="w-3 h-3" style={{ color }} />}
                     </span>
                   </div>
                   <div className="flex flex-col flex-1 min-w-0">
-                    <span className="text-sm font-semibold text-[#0D1B2A] dark:text-[#E0E1DD] truncate">{name}</span>
+                    <span className="text-sm font-semibold text-[var(--color-text-dark)] dark:text-[var(--color-text-light)] truncate">{name}</span>
                     {followers && (
                       <span className="text-xs text-gray-500 dark:text-gray-400">{followers}</span>
                     )}
                   </div>
-                  <GoArrowUpRight className="text-gray-400 group-hover:text-indigo-500 dark:group-hover:text-blue-400 transition text-lg flex-shrink-0" />
+                  <GoArrowUpRight className="text-gray-400 group-hover:text-[var(--color-accent)] transition text-lg flex-shrink-0" />
                 </a>
               )
             })}
@@ -117,7 +117,7 @@ const Contact = () => {
               onChange={handleChange}
               required
               placeholder="Votre nom"
-              className="bg-[#f3f4f6] dark:bg-[#1B263B] rounded-lg px-4 py-2.5 text-sm text-[#0D1B2A] dark:text-[#E0E1DD] border border-gray-200 dark:border-[#253450] focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:focus:ring-gray-400"
+              className="bg-[var(--color-light-panel)] dark:bg-[var(--color-dark-surface)] rounded-lg px-4 py-2.5 text-sm text-[var(--color-text-dark)] dark:text-[var(--color-text-light)] border border-gray-200 dark:border-[var(--color-dark-border)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
             />
           </div>
           <div className="flex flex-col gap-1">
@@ -129,7 +129,7 @@ const Contact = () => {
               onChange={handleChange}
               required
               placeholder="votre@email.com"
-              className="bg-[#f3f4f6] dark:bg-[#1B263B] rounded-lg px-4 py-2.5 text-sm text-[#0D1B2A] dark:text-[#E0E1DD] border border-gray-200 dark:border-[#253450] focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:focus:ring-gray-400"
+              className="bg-[var(--color-light-panel)] dark:bg-[var(--color-dark-surface)] rounded-lg px-4 py-2.5 text-sm text-[var(--color-text-dark)] dark:text-[var(--color-text-light)] border border-gray-200 dark:border-[var(--color-dark-border)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
             />
           </div>
           <div className="flex flex-col gap-1">
@@ -139,7 +139,7 @@ const Contact = () => {
               value={form.sujet}
               onChange={handleChange}
               placeholder="Ex: Site e-commerce, App mobile..."
-              className="bg-[#f3f4f6] dark:bg-[#1B263B] rounded-lg px-4 py-2.5 text-sm text-[#0D1B2A] dark:text-[#E0E1DD] border border-gray-200 dark:border-[#253450] focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:focus:ring-gray-400"
+              className="bg-[var(--color-light-panel)] dark:bg-[var(--color-dark-surface)] rounded-lg px-4 py-2.5 text-sm text-[var(--color-text-dark)] dark:text-[var(--color-text-light)] border border-gray-200 dark:border-[var(--color-dark-border)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
             />
           </div>
           <div className="flex flex-col gap-1 flex-1">
@@ -150,16 +150,16 @@ const Contact = () => {
               onChange={handleChange}
               rows={5}
               placeholder="Décrivez votre projet..."
-              className="bg-[#f3f4f6] dark:bg-[#1B263B] rounded-lg px-4 py-2.5 text-sm text-[#0D1B2A] dark:text-[#E0E1DD] focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:focus:ring-gray-400 resize-none flex-1"
+              className="bg-[var(--color-light-panel)] dark:bg-[var(--color-dark-surface)] rounded-lg px-4 py-2.5 text-sm text-[var(--color-text-dark)] dark:text-[var(--color-text-light)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] resize-none flex-1"
             />
           </div>
 
           <div className="flex justify-end">
             <button
               type="submit"
-              style={{ backgroundColor: '#22c55e' }}
-              onMouseEnter={e => e.currentTarget.style.backgroundColor = '#16a34a'}
-              onMouseLeave={e => e.currentTarget.style.backgroundColor = '#22c55e'}
+              style={{ backgroundColor: '#22C55E' }}
+              onMouseEnter={e => e.currentTarget.style.backgroundColor = '#16A34A'}
+              onMouseLeave={e => e.currentTarget.style.backgroundColor = '#22C55E'}
               className="flex items-center gap-2 transition text-white font-semibold text-sm px-6 py-2.5 rounded-lg"
             >
               Envoyer <GoArrowUpRight className="text-lg" />

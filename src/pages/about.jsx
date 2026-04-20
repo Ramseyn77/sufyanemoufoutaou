@@ -11,9 +11,9 @@ import { GoArrowUpRight } from 'react-icons/go'
 import { TrendingUp, Users, RefreshCw, GraduationCap, BadgeCheck } from 'lucide-react'
 
 const valeurIconMap = {
-  TrendingUp: <TrendingUp className="w-5 h-5 text-indigo-500 dark:text-blue-400" />,
-  Users:      <Users      className="w-5 h-5 text-indigo-500 dark:text-blue-400" />,
-  RefreshCw:  <RefreshCw  className="w-5 h-5 text-indigo-500 dark:text-blue-400" />,
+  TrendingUp: <TrendingUp className="w-5 h-5 text-[var(--color-accent)]" />,
+  Users:      <Users      className="w-5 h-5 text-[var(--color-accent)]" />,
+  RefreshCw:  <RefreshCw  className="w-5 h-5 text-[var(--color-accent)]" />,
 }
 
 const getCertifIcon = (organisation) => {
@@ -27,7 +27,7 @@ const getCertifIcon = (organisation) => {
   }
 
   return {
-    containerClassName: 'bg-amber-400',
+    containerClassName: 'bg-[var(--color-warm)]',
     icon: <GraduationCap className="w-5 h-5 text-white" />,
   }
 }
@@ -40,7 +40,7 @@ const logoMap = {
 
 const About = () => {
   return (
-    <div className="flex flex-col w-full min-h-screen dark:bg-[#0D1B2A]">
+    <div className="flex flex-col w-full min-h-screen dark:bg-[var(--color-dark)]">
       <Navbar />
 
       <div className="px-4 py-6 flex flex-col gap-8">
@@ -52,7 +52,7 @@ const About = () => {
         <div className="flex flex-col lg:flex-row gap-6">
 
           {/* Expériences clés */}
-          <div className="flex-1 flex flex-col gap-4 rounded-2xl border-2 border-blue-500/40 p-5">
+          <div className="flex-1 flex flex-col gap-4 rounded-2xl border-2 border-[rgba(66,133,244,0.35)] p-5">
             <h2 className="text-lg font-bold text-[#0D1B2A] dark:text-[#E0E1DD]">Expériences clés</h2>
             <div className="flex flex-col gap-3">
               {data.experiences.map((exp, i) => (
@@ -71,9 +71,9 @@ const About = () => {
                     <span className="text-sm font-bold text-[#0D1B2A] dark:text-[#E0E1DD] truncate">
                       {exp.entreprise}
                     </span>
-                    <div className="flex justify-between items-center">
+                    <div className="flex flex-col items-start gap-1 sm:flex-row sm:justify-between sm:items-center">
                       <span className="text-xs text-gray-500 dark:text-gray-400">{exp.poste}</span>
-                      <span className="text-[10px] text-gray-400 ml-2 flex-shrink-0">{exp.periode}</span>
+                      <span className="text-[10px] text-gray-400 flex-shrink-0">{exp.periode}</span>
                     </div>
                   </div>
                 </div>
@@ -97,9 +97,9 @@ const About = () => {
                       <span className="text-sm font-bold text-[#0D1B2A] dark:text-[#E0E1DD] truncate">
                         {certif.titre}
                       </span>
-                      <div className="flex justify-between items-center">
+                      <div className="flex flex-col items-start gap-1 sm:flex-row sm:justify-between sm:items-center">
                         <span className="text-xs text-gray-500 dark:text-gray-400">{certif.organisation}</span>
-                        <span className="text-[10px] text-gray-400 ml-2 flex-shrink-0">{certif.date}</span>
+                        <span className="text-[10px] text-gray-400 flex-shrink-0">{certif.date}</span>
                       </div>
                     </div>
                   </div>
@@ -119,7 +119,7 @@ const About = () => {
                 key={i}
                 className="flex flex-col gap-3 bg-[#f3f4f6] dark:bg-[#1B263B] rounded-2xl p-5"
               >
-                <div className="w-9 h-9 rounded-xl bg-indigo-500/10 dark:bg-blue-500/10 flex items-center justify-center">
+                <div className="w-9 h-9 rounded-xl bg-[var(--color-accent-soft)] flex items-center justify-center">
                   {valeurIconMap[valeur.icone]}
                 </div>
                 <span className="text-sm font-bold text-[#0D1B2A] dark:text-[#E0E1DD]">{valeur.titre}</span>
@@ -131,13 +131,13 @@ const About = () => {
 
         {/* CTA */}
         <div className="flex flex-col items-center gap-5 py-4">
-          <p className="text-sm text-indigo-500 dark:text-blue-400 font-medium text-center">
+          <p className="text-sm text-[var(--color-accent)] font-medium text-center">
             Prêt à discuter de votre projet ou besoin de plus d'informations ?
           </p>
-          <div className="flex flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
             <Link
               to="/portfolio"
-              className="px-8 py-3 bg-amber-400 hover:bg-amber-500 transition text-white font-semibold rounded-xl text-sm"
+              className="px-8 py-3 bg-[var(--color-warm)] hover:bg-[#EA9309] transition text-white font-semibold rounded-xl text-sm text-center"
             >
                <div className='text-white font-semibold flex items-center gap-2'>
                   Voir mes projets
@@ -145,7 +145,7 @@ const About = () => {
             </Link>
             <Link
               to="/contact"
-              className=" px-8 py-3 bg-green-500 hover:bg-green-600 transition rounded-xl text-sm"
+              className=" px-8 py-3 bg-[var(--color-success)] hover:bg-[#16A34A] transition rounded-xl text-sm text-center"
             >
               <div className='text-white font-semibold flex items-center gap-2'>
                 Me contacter <GoArrowUpRight />

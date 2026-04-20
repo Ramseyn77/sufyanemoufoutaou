@@ -16,15 +16,15 @@ const navLinks = [
 const desktopLinkClass = ({ isActive }) =>
   `rounded-full px-3 py-2 text-sm font-medium transition ${
     isActive
-      ? 'bg-indigo-50 text-indigo-600 shadow-sm dark:bg-[#1B263B] dark:text-blue-400'
-      : 'text-[#1B263B] dark:text-[#8CA5C4] hover:bg-gray-100 hover:text-indigo-500 dark:hover:bg-[#1B263B] dark:hover:text-blue-400'
+      ? 'bg-[var(--color-accent-soft)] text-[var(--color-accent)] shadow-sm dark:bg-[rgba(66,133,244,0.16)] dark:text-[var(--color-accent)]'
+      : 'text-[var(--color-text-dark)] dark:text-slate-300 hover:bg-slate-100 hover:text-[var(--color-accent)] dark:hover:bg-[var(--color-dark-surface)] dark:hover:text-[var(--color-accent)]'
   }`
 
 const mobileLinkClass = ({ isActive }) =>
   `rounded-xl border-l-2 px-3 py-2 text-sm font-medium transition ${
     isActive
-      ? 'border-indigo-500 bg-indigo-50 text-indigo-600 dark:border-blue-400 dark:bg-[#1B263B] dark:text-blue-400'
-      : 'border-transparent text-[#1B263B] dark:text-[#8CA5C4] hover:bg-gray-100 hover:text-indigo-500 dark:hover:bg-[#1B263B] dark:hover:text-blue-400'
+      ? 'border-[var(--color-accent)] bg-[var(--color-accent-soft)] text-[var(--color-accent)] dark:border-[var(--color-accent)] dark:bg-[rgba(66,133,244,0.16)] dark:text-[var(--color-accent)]'
+      : 'border-transparent text-[var(--color-text-dark)] dark:text-slate-300 hover:bg-slate-100 hover:text-[var(--color-accent)] dark:hover:bg-[var(--color-dark-surface)] dark:hover:text-[var(--color-accent)]'
   }`
 
 const Navbar = () => {
@@ -33,11 +33,11 @@ const Navbar = () => {
   return (
     <>
       {/* Desktop */}
-      <nav className="hidden md:flex flex-row justify-between items-center w-full bg-white dark:bg-[#0D1B2A] mb-5 py-3 px-4">
+      <nav className="hidden md:flex flex-row justify-between items-center w-full bg-white dark:bg-[var(--color-dark)] mb-5 py-3 px-4">
         {/* Logo + nom */}
         <NavLink to="/" className="flex flex-row items-center gap-3">
           <img src={logo2} alt="logo" className="w-10 h-10 rounded-full" />
-          <span className="text-xl font-bold text-[#0D1B2A] dark:text-[#E0E1DD]">
+          <span className="text-xl font-bold text-[var(--color-text-dark)] dark:text-[var(--color-text-light)]">
             Sufyane MOUFOUTAOU
           </span>
         </NavLink>
@@ -52,18 +52,18 @@ const Navbar = () => {
       </nav>
 
       {/* Mobile */}
-      <nav className="md:hidden w-full bg-white dark:bg-[#0D1B2A] mb-5 px-3 py-2">
+      <nav className="md:hidden w-full bg-white dark:bg-[var(--color-dark)] mb-5 px-3 py-2">
         <div className="flex flex-row items-center justify-between">
           <button
             onClick={() => setMenuOpen(true)}
             aria-label="Ouvrir le menu"
             className="p-2 focus:outline-none"
           >
-            <FaBars className="text-2xl text-[#1B263B] dark:text-[#8CA5C4]" />
+            <FaBars className="text-2xl text-slate-800 dark:text-slate-300" />
           </button>
           <NavLink to="/" className="flex flex-row items-center gap-2">
             <img src={logo2} alt="logo" className="w-9 h-9 rounded-full" />
-            <span className="text-sm font-bold text-[#0D1B2A] dark:text-[#E0E1DD]">
+            <span className="text-sm font-bold text-[var(--color-text-dark)] dark:text-[var(--color-text-light)]">
               Sufyane MOUFOUTAOU
             </span>
           </NavLink>
@@ -72,9 +72,9 @@ const Navbar = () => {
         {/* Drawer */}
         {menuOpen && (
           <div className="fixed inset-0 z-50 bg-black bg-opacity-40 flex">
-            <div className="bg-white dark:bg-[#0D1B2A] w-2/3 max-w-xs h-full p-6 flex flex-col shadow-lg animate-slide-in-left">
+            <div className="bg-white dark:bg-[var(--color-dark)] w-2/3 max-w-xs h-full p-6 flex flex-col shadow-lg animate-slide-in-left">
               <button
-                className="self-end mb-6 text-2xl text-[#1B263B] dark:text-[#8CA5C4] focus:outline-none"
+                className="self-end mb-6 text-2xl text-slate-800 dark:text-slate-300 focus:outline-none"
                 onClick={() => setMenuOpen(false)}
                 aria-label="Fermer le menu"
               >

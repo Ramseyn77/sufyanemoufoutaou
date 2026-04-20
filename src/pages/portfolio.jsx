@@ -26,7 +26,7 @@ const Portfolio = () => {
     : data.projects.filter((p) => p.categorie === activeCategory)
 
   return (
-    <div className="flex flex-col w-full min-h-screen dark:bg-[#0D1B2A]">
+    <div className="flex flex-col w-full min-h-screen dark:bg-[var(--color-dark)]">
       <Navbar />
 
       <div className="px-4 py-6 flex flex-col gap-6">
@@ -37,10 +37,10 @@ const Portfolio = () => {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2 rounded-lg text-sm font-semibold transition ${
+              className={`px-4 sm:px-5 py-2 rounded-lg text-sm font-semibold transition ${
                 activeCategory === cat
-                  ? 'bg-amber-400 text-white'
-                  : 'bg-[#f3f4f6] dark:bg-[#1B263B] text-[#1B263B] dark:text-[#8CA5C4] hover:bg-amber-100 dark:hover:bg-[#253450]'
+                  ? 'bg-[var(--color-warm)] text-white'
+                  : 'bg-[#f3f4f6] dark:bg-[var(--color-dark-surface)] text-[#1B263B] dark:text-slate-300 hover:bg-[var(--color-warm-soft)] dark:hover:bg-[var(--color-dark-border)]'
               }`}
             >
               {cat}
@@ -55,10 +55,10 @@ const Portfolio = () => {
             return (
               <div
                 key={index}
-                className="flex flex-row gap-5 bg-[#f3f4f6] dark:bg-[#1B263B] rounded-2xl p-4 items-center"
+                className="flex flex-col sm:flex-row gap-4 sm:gap-5 bg-[#f3f4f6] dark:bg-[#1B263B] rounded-2xl p-4 items-start sm:items-center"
               >
                 {/* Image */}
-                <div className="flex-shrink-0 w-28 h-20 rounded-xl overflow-hidden bg-blue-400">
+                <div className="flex-shrink-0 w-full sm:w-28 h-40 sm:h-20 rounded-xl overflow-hidden bg-[var(--color-accent)]">
                   <img src={img} alt={project.nom} className="w-full h-full object-cover" />
                 </div>
 
@@ -86,13 +86,13 @@ const Portfolio = () => {
                 </div>
 
                 {/* Boutons */}
-                <div className="flex flex-col gap-2 flex-shrink-0">
+                <div className="flex flex-col sm:items-stretch gap-2 flex-shrink-0 w-full sm:w-auto">
                   {project.online && project.url ? (
                     <a
                       href={project.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center bg-amber-400 hover:bg-amber-500 transition rounded-lg"
+                      className="flex items-center justify-center bg-[var(--color-warm)] hover:bg-[#EA9309] transition rounded-lg"
                     >
                       <div className='flex text-white text-xs font-semibold px-4 py-2 items-center gap-1'>
                         Voir le site <GoArrowUpRight />
@@ -103,7 +103,7 @@ const Portfolio = () => {
                       href={project.visualisation}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center  bg-indigo-500 hover:bg-indigo-600 transition text-white text-xs font-semibold px-4 py-2 rounded-lg"
+                      className="flex items-center justify-center bg-[var(--color-accent)] hover:bg-[#2F6FD1] transition text-white text-xs font-semibold px-4 py-2 rounded-lg"
                     >
                       <div className='flex text-white gap-1 items-center'>
                         Visualisation <FaEye />
@@ -112,7 +112,7 @@ const Portfolio = () => {
                   ) : null}
                   <Link
                     to="/contact"
-                    className="flex items-center justify-center gap-1 bg-green-500 hover:bg-green-600 transition text-white text-xs font-semibold px-4 py-2 rounded-lg"
+                    className="flex items-center justify-center gap-1 bg-[var(--color-success)] hover:bg-[#16A34A] transition text-white text-xs font-semibold px-4 py-2 rounded-lg"
                   >
                     <div className='text-white text-xs font-semibold'>
                       Contact

@@ -23,12 +23,12 @@ const Footer = () => {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="w-full mt-8 border-t border-gray-200 dark:border-[#1B263B] bg-white dark:bg-[#0D1B2A]">
+    <footer className="w-full mt-8 border-t border-gray-200 dark:border-[var(--color-dark-border)] bg-white dark:bg-[var(--color-dark)]">
       <div className="max-w-6xl mx-auto px-4 py-5 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div className="flex items-center gap-3 min-w-0">
           <img src={logo2} alt="logo" className="w-9 h-9 rounded-full flex-shrink-0" />
           <div className="min-w-0">
-            <p className="text-sm font-semibold text-[#0D1B2A] dark:text-[#E0E1DD] truncate">Sufyane MOUFOUTAOU</p>
+            <p className="text-sm font-semibold text-[var(--color-text-dark)] dark:text-[var(--color-text-light)] truncate">Sufyane MOUFOUTAOU</p>
             <p className="text-xs text-gray-500 dark:text-gray-400 truncate">FullStack Web/Mobile • UX/UI • IA</p>
           </div>
         </div>
@@ -38,7 +38,7 @@ const Footer = () => {
             <a
               key={link.href}
               href={link.href}
-              className="hover:text-indigo-500 dark:hover:text-blue-400 transition"
+              className="hover:text-[var(--color-accent)] dark:hover:text-[var(--color-accent)] transition"
             >
               {link.label}
             </a>
@@ -51,7 +51,7 @@ const Footer = () => {
               key={label}
               href={href}
               aria-label={label}
-              className="rounded-full bg-[#E0E1DD] dark:bg-[#1B263B] p-2 shadow hover:bg-indigo-100 dark:hover:bg-blue-900 transition"
+              className="rounded-full bg-slate-200 dark:bg-[var(--color-dark-surface)] p-2 shadow hover:bg-[var(--color-accent-soft)] dark:hover:bg-[rgba(66,133,244,0.16)] transition"
             >
               <Icon className="text-[#1B263B] dark:text-gray-400 text-sm" />
             </a>
@@ -59,10 +59,10 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="border-t border-gray-200 dark:border-[#1B263B]">
+      <div className="border-t border-gray-200 dark:border-[var(--color-dark-border)]">
         <div className="max-w-6xl mx-auto px-4 py-3 flex flex-col gap-2 text-center md:flex-row md:items-center md:justify-between md:text-left">
           <p className="text-[11px] text-gray-500 dark:text-gray-400">© {year} Sufyane MOUFOUTAOU</p>
-          <a href="#top" className="text-[11px] text-indigo-500 dark:text-blue-400 hover:underline">
+          <a href="#top" className="text-[11px] text-[var(--color-accent)] hover:underline">
             Revenir en haut
           </a>
         </div>
