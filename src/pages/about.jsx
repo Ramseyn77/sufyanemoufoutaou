@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import Footer from '../components/Footer'
+import Seo from '../components/Seo'
 import data from '../utils/data.json'
 import omnitradeImg from '../assets/img/omnitrade.jpg'
 import sobapsImg from '../assets/img/sobaps.jpeg'
@@ -41,6 +42,11 @@ const logoMap = {
 const About = () => {
   return (
     <div className="flex flex-col w-full min-h-screen dark:bg-[var(--color-dark)]">
+      <Seo
+        title="À propos"
+        description="Découvrez le parcours, les expériences, les formations et la manière de travailler de Sufyane MOUFOUTAOU."
+        keywords="à propos, expériences, formations, certifications, développeur, portfolio"
+      />
       <Navbar />
 
       <div className="px-4 py-6 flex flex-col gap-8">

@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import Seo from '../components/Seo'
 import { FaCode, FaMobileAlt, FaBrain, FaGlobe, FaPaintBrush } from 'react-icons/fa'
 import { GoArrowUpRight } from 'react-icons/go'
 import lydia from '../assets/img/lydia.jpg'
@@ -51,6 +52,11 @@ const recentProjects = [
 const Home = () => {
   return (
     <div className="flex flex-col w-full min-h-screen dark:bg-[var(--color-dark)]">
+      <Seo
+        title="Accueil"
+        description="Portfolio de Sufyane MOUFOUTAOU : développement web/mobile, UX/UI design et intégration de solutions IA pour des projets modernes et performants."
+        keywords="développeur full-stack, développeur web, développeur mobile, UX UI, portfolio, IA, React, freelance"
+      />
       <Navbar />
 
       {/* Hero */}

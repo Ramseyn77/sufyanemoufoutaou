@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import Seo from '../components/Seo'
 import data from '../utils/data.json'
 import { LucideLaptop, Server, Cpu, Award } from 'lucide-react'
 
@@ -59,6 +60,11 @@ const Competence = () => {
 
   return (
     <div className="flex flex-col w-full min-h-screen dark:bg-[var(--color-dark)]">
+      <Seo
+        title="Compétences"
+        description="Compétences techniques de Sufyane MOUFOUTAOU en front-end, back-end, outils de design et technologies IA."
+        keywords="compétences développeur, React, Node.js, Laravel, Python, TensorFlow, UX UI"
+      />
       <Navbar />
 
       <div className="px-4 py-6 flex flex-col gap-8">

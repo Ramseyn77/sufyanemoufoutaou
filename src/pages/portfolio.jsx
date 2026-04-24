@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import Seo from '../components/Seo'
 import { Link } from 'react-router-dom'
 import data from '../utils/data.json'
 import { GoArrowUpRight } from 'react-icons/go'
@@ -27,6 +28,11 @@ const Portfolio = () => {
 
   return (
     <div className="flex flex-col w-full min-h-screen dark:bg-[var(--color-dark)]">
+      <Seo
+        title="Portfolio"
+        description="Projets web, design et intelligence artificielle réalisés par Sufyane MOUFOUTAOU."
+        keywords="portfolio développeur, projets React, projets design, projets IA, réalisations"
+      />
       <Navbar />
 
       <div className="px-4 py-6 flex flex-col gap-6">

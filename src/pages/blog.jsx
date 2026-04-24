@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import Seo from '../components/Seo'
 import data from '../utils/data.json'
 import { GoArrowUpRight } from 'react-icons/go'
 
@@ -10,6 +11,23 @@ const Blog = () => {
   if (selected) {
     return (
       <div className="flex flex-col w-full min-h-screen bg-[var(--color-light-surface)] dark:bg-[var(--color-dark)]">
+        <Seo
+          title={selected.titre}
+          description={selected.description}
+          type="article"
+          keywords="blog développement, SEO, stack moderne, déploiement, IA"
+          schema={{
+            '@context': 'https://schema.org',
+            '@type': 'Article',
+            headline: selected.titre,
+            description: selected.description,
+            datePublished: selected.date,
+            author: {
+              '@type': 'Person',
+              name: 'Sufyane MOUFOUTAOU',
+            },
+          }}
+        />
         <Navbar />
 
         <div className="px-4 py-6">
@@ -61,6 +79,17 @@ const Blog = () => {
 
   return (
     <div className="flex flex-col w-full min-h-screen bg-[var(--color-light-surface)] dark:bg-[var(--color-dark)]">
+      <Seo
+        title="Blog"
+        description="Articles sur le développement web, le SEO, le design produit, le choix de stack et l'intégration de l'IA."
+        keywords="blog développeur, articles SEO, blog web, IA, déploiement, stack moderne"
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'Blog',
+          name: 'Blog de Sufyane MOUFOUTAOU',
+          description: "Articles sur le développement web, le SEO, le design produit et l'IA.",
+        }}
+      />
       <Navbar />
 
       <div className="px-4 py-6 flex flex-col gap-8">

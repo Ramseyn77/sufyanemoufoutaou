@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import Seo from '../components/Seo'
 import data from '../utils/data.json'
 import { GoArrowUpRight } from 'react-icons/go'
 import { CheckCircle2 } from 'lucide-react'
@@ -11,6 +12,11 @@ const { services } = data
 const Service = () => {
   return (
     <div className="flex flex-col w-full min-h-screen dark:bg-[var(--color-dark)]">
+      <Seo
+        title="Services"
+        description="Services de développement web/mobile, design UX/UI et intégration IA pour accompagner vos projets digitaux."
+        keywords="services web, développement mobile, UX UI, intégration IA, freelance développeur"
+      />
       <Navbar />
 
       <div className="px-4 py-6 flex flex-col gap-8">
