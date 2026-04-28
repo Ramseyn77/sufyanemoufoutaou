@@ -5,6 +5,7 @@ import Hero from '../components/Hero'
 import Footer from '../components/Footer'
 import Seo from '../components/Seo'
 import data from '../utils/data.json'
+import ktalyzImg from '../assets/img/ktalyz.webp'
 import omnitradeImg from '../assets/img/omnitrade.jpg'
 import sobapsImg from '../assets/img/sobaps.jpeg'
 import edoutechImg from '../assets/img/edoutech.png'
@@ -34,6 +35,7 @@ const getCertifIcon = (organisation) => {
 }
 
 const logoMap = {
+  '../assets/img/ktalyz.webp': ktalyzImg,
   '../assets/img/omnitrade.jpg': omnitradeImg,
   '../assets/img/sobaps.jpeg': sobapsImg,
   '../assets/img/edoutech.png': edoutechImg,
