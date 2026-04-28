@@ -75,7 +75,7 @@
   "hero": {
     "name": "Sufyane",
     "surname": "MOUFOUTAOU",
-    "role": "UX/UI Designer - FullStack Web/Mobile - IA Engineer",
+    "role": "IA Developer · Full-Stack Web/Mobile · UX/UI Designer",
     "message": "Passionn\u00e9 par la conception d'exp\u00e9riences simples et impactantes, je con\u00e7ois et d\u00e9veloppe des produits web et mobiles de bout en bout. Mon expertise couvre le design UX/UI, le d\u00e9veloppement Full-Stack et l'int\u00e9gration de fonctionnalit\u00e9s IA pour gagner en performance et en valeur m\u00e9tier. J'aime transformer des id\u00e9es en interfaces \u00e9l\u00e9gantes, accessibles et performantes, avec une attention particuli\u00e8re aux d\u00e9tails et \u00e0 la qualit\u00e9 du code. Ouvert aux missions et collaborations - parlons de votre projet."
   },
 
@@ -287,6 +287,106 @@
       "Vous cherchez un développeur IA pour votre projet",
       "Votre plateforme manque de performance",
       "Vous souhaitez un design soigné et impactant"
+    ],
+    "catalogue": [
+      {
+        "categorie": "Web & Mobile",
+        "icone": "Globe",
+        "couleur": "blue",
+        "items": [
+          {
+            "titre": "Site vitrine & personnalisé",
+            "description": "Du simple site vitrine au site sur mesure, conçu pour convertir et refléter votre image.",
+            "badge": null
+          },
+          {
+            "titre": "Refonte & amélioration de site",
+            "description": "Modernisation, optimisation de performance et redesign de sites existants.",
+            "badge": null
+          },
+          {
+            "titre": "Développement Full-Stack",
+            "description": "Applications web complètes, du frontend React jusqu'à l'API backend et la base de données.",
+            "badge": null
+          },
+          {
+            "titre": "Portfolio professionnel",
+            "description": "Un portfolio unique pour mettre en valeur votre profil ou vos créations.",
+            "badge": null
+          },
+          {
+            "titre": "App Android & iOS",
+            "description": "Applications mobiles cross-platform avec React Native, adaptées à vos besoins métier.",
+            "badge": null
+          }
+        ]
+      },
+      {
+        "categorie": "IA & Machine Learning",
+        "icone": "Brain",
+        "couleur": "purple",
+        "items": [
+          {
+            "titre": "Chatbot IA avec documents",
+            "description": "Assistant IA qui répond à partir de vos fichiers PDF, Word ou bases de connaissances.",
+            "badge": "Très demandé"
+          },
+          {
+            "titre": "Intégration IA dans une app",
+            "description": "Ajout de fonctionnalités intelligentes (résumé, génération, classification) dans votre application.",
+            "badge": null
+          },
+          {
+            "titre": "Modèle de prédiction",
+            "description": "Modèles ML pour anticiper des résultats métier : churn, ventes, prix, risques.",
+            "badge": null
+          },
+          {
+            "titre": "Vision par ordinateur",
+            "description": "Détection et classification d'images pour automatiser vos processus visuels.",
+            "badge": null
+          },
+          {
+            "titre": "Modèle IA custom",
+            "description": "Conception et entraînement d'un modèle IA léger adapté à votre cas d'usage spécifique.",
+            "badge": null
+          }
+        ]
+      },
+      {
+        "categorie": "Data & Reporting",
+        "icone": "BarChart2",
+        "couleur": "green",
+        "items": [
+          {
+            "titre": "Analyse & visualisation de données",
+            "description": "Tableaux de bord et graphiques interactifs à partir de vos données Excel, CSV ou base de données.",
+            "badge": null
+          },
+          {
+            "titre": "Dashboard & outils internes",
+            "description": "Interfaces métier sur mesure pour piloter votre activité et vos équipes en temps réel.",
+            "badge": null
+          }
+        ]
+      },
+      {
+        "categorie": "Intégrations & SEO",
+        "icone": "Zap",
+        "couleur": "orange",
+        "items": [
+          {
+            "titre": "Intégration API",
+            "description": "Connexion de vos outils et services via API REST, webhooks ou SDK tiers.",
+            "badge": null
+          },
+          {
+            "titre": "Optimisation SEO",
+            "description": "Audit technique, balisage sémantique et performance pour améliorer votre visibilité Google.",
+            "badge": null
+          }
+        ]
+      }
     ],
     "process": [
       {

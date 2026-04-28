@@ -5,9 +5,23 @@ import Footer from '../components/Footer'
 import Seo from '../components/Seo'
 import data from '../utils/data.json'
 import { GoArrowUpRight } from 'react-icons/go'
-import { CheckCircle2 } from 'lucide-react'
+import { CheckCircle2, Globe, Brain, BarChart2, Zap } from 'lucide-react'
 
 const { services } = data
+
+const iconeMap = {
+  Globe:     <Globe    className="w-5 h-5" />,
+  Brain:     <Brain    className="w-5 h-5" />,
+  BarChart2: <BarChart2 className="w-5 h-5" />,
+  Zap:       <Zap      className="w-5 h-5" />,
+}
+
+const couleurMap = {
+  blue:   { header: 'text-blue-500',                    bg: 'bg-blue-50 dark:bg-blue-900/20',   badge: 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300',   icon: 'bg-blue-100 dark:bg-blue-900/40 text-blue-500' },
+  purple: { header: 'text-purple-500',                  bg: 'bg-purple-50 dark:bg-purple-900/20', badge: 'bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300', icon: 'bg-purple-100 dark:bg-purple-900/40 text-purple-500' },
+  green:  { header: 'text-[var(--color-success)]',      bg: 'bg-green-50 dark:bg-green-900/20', badge: 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300',   icon: 'bg-green-100 dark:bg-green-900/40 text-[var(--color-success)]' },
+  orange: { header: 'text-[var(--color-warm)]',         bg: 'bg-orange-50 dark:bg-orange-900/20', badge: 'bg-orange-100 text-orange-700 dark:bg-orange-900/40 dark:text-orange-300', icon: 'bg-orange-100 dark:bg-orange-900/40 text-[var(--color-warm)]' },
+}
 
 const Service = () => {
   return (
@@ -46,6 +60,48 @@ const Service = () => {
                 Discuter de votre projet
               </div>
             </Link>
+          </div>
+        </div>
+
+        {/* Catalogue des services */}
+        <div className="flex flex-col gap-6">
+          <h2 className="text-xl font-bold text-[var(--color-text-dark)] dark:text-[var(--color-text-light)] text-center">
+            Mes services
+          </h2>
+          <div className="flex flex-col gap-8">
+            {services.catalogue.map((cat, ci) => {
+              const c = couleurMap[cat.couleur]
+              return (
+                <div key={ci} className="flex flex-col gap-4">
+                  <div className={`flex items-center gap-2 ${c.header}`}>
+                    <div className={`w-8 h-8 rounded-xl flex items-center justify-center ${c.icon}`}>
+                      {iconeMap[cat.icone]}
+                    </div>
+                    <span className="text-sm font-bold uppercase tracking-widest">{cat.categorie}</span>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                    {cat.items.map((item, ii) => (
+                      <div
+                        key={ii}
+                        className={`relative flex flex-col gap-2 rounded-2xl px-4 py-4 ${c.bg} border border-transparent hover:border-current hover:border-opacity-20 transition`}
+                      >
+                        {item.badge && (
+                          <span className={`self-start text-[10px] font-bold px-2 py-0.5 rounded-full ${c.badge}`}>
+                            ⭐ {item.badge}
+                          </span>
+                        )}
+                        <span className="text-sm font-bold text-[var(--color-text-dark)] dark:text-[var(--color-text-light)]">
+                          {item.titre}
+                        </span>
+                        <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+                          {item.description}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </div>
 
