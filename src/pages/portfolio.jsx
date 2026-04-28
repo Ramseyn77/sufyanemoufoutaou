@@ -10,11 +10,13 @@ import { FaEye } from 'react-icons/fa'
 import lydiaImg from '../assets/img/lydia.jpg'
 import alainImg from '../assets/img/Alain1.png'
 import logo1Img from '../assets/img/logo1.png'
+import miwadoo from '../assets/img/miwadoo.png'
 
 const imageMap = {
   lydia: lydiaImg,
   alain: alainImg,
   logo1: logo1Img,
+  miwadoo : miwadoo
 }
 
 const categories = ['Tous', 'Web', 'Design', 'IA & ML', 'Autre']

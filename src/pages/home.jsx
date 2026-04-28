@@ -6,7 +6,7 @@ import Seo from '../components/Seo'
 import { FaCode, FaMobileAlt, FaBrain, FaGlobe, FaPaintBrush } from 'react-icons/fa'
 import { GoArrowUpRight } from 'react-icons/go'
 import lydia from '../assets/img/lydia.jpg'
-import alain from '../assets/img/Alain1.png'
+import miwadoo from '../assets/img/miwadoo.png'
 
 const skills = [
   { label: 'Front-End', icon: <FaCode className="text-2xl text-orange-400" /> },
@@ -34,18 +34,18 @@ const services = [
 
 const recentProjects = [
   {
+    nom: 'MIWADOO',
+    description: 'Plateforme web et mobile mettant en relation les clients, restaurants et les livreurs.',
+    image: miwadoo,
+    logo: miwadoo,
+    url: 'https://www.miwadoo.com',
+  },
+  {
     nom: 'Lydia',
     description: 'Plateforme de gestion des établissements scolaires.',
     image: lydia,
     logo: lydia,
     url: 'https://www.lydia-edu.com',
-  },
-  {
-    nom: 'Alain Portfolio',
-    description: 'Développement frontend pour un portfolio d\'agent de santé.',
-    image: alain,
-    logo: alain,
-    url: 'https://alain-assobga.vercel.app/',
   },
 ]
 

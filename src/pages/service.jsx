@@ -63,6 +63,27 @@ const Service = () => {
           </div>
         </div>
 
+        {/* Cas */}
+        <div className="flex flex-col gap-5">
+          <h2 className="text-xl font-bold text-[var(--color-text-dark)] dark:text-[var(--color-text-light)] text-center">
+            Vous êtes dans l'un de ces cas&nbsp;??
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl mx-auto w-full">
+            {services.cas.map((cas, i) => (
+              <div
+                key={i}
+                className="flex items-center gap-3 bg-[#f3f4f6] dark:bg-[var(--color-dark-surface)] rounded-xl px-4 py-3"
+              >
+                <CheckCircle2 className="w-5 h-5 text-[var(--color-success)] flex-shrink-0" />
+                <span className="text-sm text-[var(--color-text-dark)] dark:text-[var(--color-text-light)]">{cas}</span>
+              </div>
+            ))}
+          </div>
+          <p className="text-center text-sm text-[var(--color-accent)] font-medium mt-1">
+            Je vous accompagne jusqu'au déploiement
+          </p>
+        </div>
+
         {/* Catalogue des services */}
         <div className="flex flex-col gap-6">
           <h2 className="text-xl font-bold text-[var(--color-text-dark)] dark:text-[var(--color-text-light)] text-center">
@@ -103,27 +124,6 @@ const Service = () => {
               )
             })}
           </div>
-        </div>
-
-        {/* Cas */}
-        <div className="flex flex-col gap-5">
-          <h2 className="text-xl font-bold text-[var(--color-text-dark)] dark:text-[var(--color-text-light)] text-center">
-            Vous êtes dans l'un de ces cas&nbsp;??
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl mx-auto w-full">
-            {services.cas.map((cas, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-3 bg-[#f3f4f6] dark:bg-[var(--color-dark-surface)] rounded-xl px-4 py-3"
-              >
-                <CheckCircle2 className="w-5 h-5 text-[var(--color-success)] flex-shrink-0" />
-                <span className="text-sm text-[var(--color-text-dark)] dark:text-[var(--color-text-light)]">{cas}</span>
-              </div>
-            ))}
-          </div>
-          <p className="text-center text-sm text-[var(--color-accent)] font-medium mt-1">
-            Je vous accompagne jusqu'au déploiement
-          </p>
         </div>
 
         {/* Process */}

@@ -1,6 +1,16 @@
 {
   "projects": [
     {
+      "nom": "MIWADOO",
+      "description": "Plateforme web et mobile dans le domaine de la livraison rapide des repas, elle met en relation les clients, restaurants et les livreurs.",
+      "image": "miwadoo",
+      "categorie": "Web",
+      "technologies": ["laravel", "flutter", "firebase"],
+      "online": true,
+      "url": "https://www.miwadoo.com",
+      "visualisation": null
+    },
+    {
       "nom": "Lydia",
       "description": "Plateforme de gestion des \u00e9tablissements scolaires - gestion des \u00e9l\u00e8ves, emplois du temps et notes.",
       "image": "lydia",
@@ -116,8 +126,8 @@
     {
       "entreprise": "Ktalyz Conseils",
       "poste": "Développeur web-mobile",
-      "periode": "Juin 2025 - Août 2025",
-      "logo": "../assets/img/omnitrade.jpg"
+      "periode": "Juin 2025 - maintenant",
+      "logo": "../assets/img/ktalyz.webp"
     },
     {
       "entreprise": "OMNITRADE",
