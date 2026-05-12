@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Seo from '../components/Seo'
 import data from '../utils/data.json'
-import { LucideLaptop, Server, Cpu, Award } from 'lucide-react'
+import { LucideLaptop, Server, Cpu, Award, Smartphone } from 'lucide-react'
 
 import jsImg from '../assets/img/JavaScript-logo.png'
 import reactImg from '../assets/react.svg'
@@ -25,6 +25,7 @@ import canvaImg from '../assets/img/Canva_Logo.svg.png'
 import postmanImg from '../assets/img/Postman_(software).png'
 import insomniaImg from '../assets/img/insomnia.jpeg'
 import reactNativeImg from '../assets/img/react-native-logo.png'
+import flutterImg from '../assets/img/flutter.png'
 
 const imageMap = {
   js: jsImg, react: reactImg, vue: vueImg, angular: angularImg,
@@ -32,19 +33,21 @@ const imageMap = {
   laravel: laravelImg, node: nodeImg, dart: dartImg, mysql: mysqlImg,
   python: pythonImg, tensorflow: tensorflowImg, sklearn: sklearnImg,
   figma: figmaImg, canva: canvaImg, postman: postmanImg,
-  insomnia: insomniaImg, reactnative: reactNativeImg,
+  insomnia: insomniaImg, reactnative: reactNativeImg, flutter: flutterImg,
 }
 
 const iconMap = {
   laptop: <LucideLaptop className="w-5 h-5" />,
   server: <Server className="w-5 h-5" />,
   cpu: <Cpu className="w-5 h-5" />,
+  smartphone: <Smartphone className="w-5 h-5" />,
 }
 
 const catStyle = {
   blue: { color: 'text-[var(--color-accent)]', bg: 'bg-[var(--color-accent-soft)]', border: 'border-[rgba(66,133,244,0.3)]', bar: 'from-[#2F6FD1] to-[var(--color-accent)]' },
   green: { color: 'text-[var(--color-success)]', bg: 'bg-[var(--color-success-soft)]', border: 'border-[rgba(34,197,94,0.3)]', bar: 'from-[#16A34A] to-[var(--color-success)]' },
   purple: { color: 'text-[var(--color-warm)]', bg: 'bg-[var(--color-warm-soft)]', border: 'border-[rgba(249,158,11,0.3)]', bar: 'from-[#EA9309] to-[var(--color-warm)]' },
+  cyan: { color: 'text-cyan-500', bg: 'bg-cyan-50 dark:bg-cyan-900/20', border: 'border-cyan-300 dark:border-cyan-900/40', bar: 'from-cyan-600 to-cyan-400' },
 }
 
 const levelLabel = (n, levels) => (

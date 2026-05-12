@@ -1,6 +1,16 @@
 {
   "projects": [
     {
+      "nom": "Chatbot RAG Portfolio",
+      "description": "Assistant IA conversationnel intégré à ce portfolio, capable de répondre aux visiteurs à partir d'un CV PDF et d'un catalogue Excel indexés via embeddings vectoriels. Démonstration en direct du service de chatbot sur documents.",
+      "image": "logo2",
+      "categorie": "IA & ML",
+      "technologies": ["React", "Node.js", "Hugging Face", "Llama 3.1", "Embeddings", "Vercel"],
+      "online": true,
+      "url": null,
+      "visualisation": null
+    },    
+    {
       "nom": "MIWADOO",
       "description": "Plateforme web et mobile dans le domaine de la livraison rapide des repas, elle met en relation les clients, restaurants et les livreurs.",
       "image": "miwadoo",
@@ -212,8 +222,7 @@
         { "nom": "Next.js", "img": "next", "niveau": 70 },
         { "nom": "Vue.js", "img": "vue", "niveau": 65 },
         { "nom": "Angular", "img": "angular", "niveau": 60 },
-        { "nom": "AdonisJS", "img": "adonis", "niveau": 65 },
-        { "nom": "React Native", "img": "reactnative", "niveau": 72 }
+        { "nom": "AdonisJS", "img": "adonis", "niveau": 65 }
       ]
     },
     {
@@ -226,6 +235,15 @@
         { "nom": "Laravel", "img": "laravel", "niveau": 70 },
         { "nom": "Dart", "img": "dart", "niveau": 55 },
         { "nom": "MySQL", "img": "mysql", "niveau": 78 }
+      ]
+    },
+    {
+      "categorie": "Mobile",
+      "icone": "smartphone",
+      "couleur": "cyan",
+      "techs": [
+        { "nom": "React Native", "img": "reactnative", "niveau": 75 },
+        { "nom": "Flutter", "img": "flutter", "niveau": 75 }
       ]
     },
     {
