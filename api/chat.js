@@ -4,6 +4,8 @@ import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { InferenceClient } from '@huggingface/inference'
 import { findTopChunks } from './_lib/retrieve.js'
+import { checkRateLimit } from './_lib/rateLimit.js'
+
 
 const EMBEDDING_MODEL = 'sentence-transformers/all-MiniLM-L6-v2'
 const LLM_MODEL = 'meta-llama/Llama-3.1-8B-Instruct'
@@ -62,6 +64,18 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed. Use POST.' })
   }
 
+   // 🔒 Rate limit par IP
+   const ip = req.headers['x-forwarded-for']?.split(',')[0]?.trim() 
+   || req.socket?.remoteAddress 
+   || 'unknown'
+ const rl = checkRateLimit(ip)
+ if (!rl.allowed) {
+   res.setHeader('Retry-After', rl.retryAfter)
+   return res.status(429).json({
+     error: `Trop de requêtes. Réessayez dans ${rl.retryAfter} secondes.`,
+   })
+ }
+
   try {
     const { messages } = req.body || {}
     if (!messages || !Array.isArray(messages) || messages.length === 0) {
@@ -71,6 +85,13 @@ export default async function handler(req, res) {
     const lastUser = [...messages].reverse().find((m) => m.role === 'user')
     if (!lastUser) return res.status(400).json({ error: 'No user message found' })
 
+    // 🔒 Limite de longueur (anti-abus)
+    if (lastUser.content.length > 500) {
+      return res.status(400).json({
+        error: 'Question trop longue (max 500 caractères).',
+      })
+    }
+      
     const hf = new InferenceClient(process.env.HF_TOKEN)
 
     // 1. Embedder la question
