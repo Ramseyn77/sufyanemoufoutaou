@@ -6,11 +6,13 @@
   "scripts": {
     "dev": "vite",
     "seo:generate": "node scripts/generate-seo.mjs",
-    "build": "npm run seo:generate && vite build",
+    "knowledge:build": "node scripts/build-knowledge.mjs",
+    "build": "npm run seo:generate && npm run knowledge:build && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@huggingface/inference": "^4.13.15",
     "@tailwindcss/vite": "^4.1.13",
     "lucide-react": "^0.542.0",
     "react": "^19.1.1",
@@ -24,12 +26,15 @@
     "@types/react-dom": "^19.1.7",
     "@vitejs/plugin-react": "^5.0.0",
     "autoprefixer": "^10.4.21",
+    "dotenv": "^17.4.2",
     "eslint": "^9.33.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
+    "pdf-parse": "^1.1.1",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.13",
-    "vite": "^7.1.2"
+    "vite": "^7.1.2",
+    "xlsx": "^0.18.5"
   }
 }

@@ -31,6 +31,16 @@
       "visualisation": null
     },
     {
+      "nom": "PhytoDiag",
+      "description": "Plateforme web de diagnostic des maladies des plantes par photo, bas\u00e9e sur un mod\u00e8le de deep learning avec int\u00e9gration des conditions m\u00e9t\u00e9o locales pour affiner les recommandations.",
+      "image": "logo2",
+      "categorie": "IA & ML",
+      "technologies": ["Python", "TensorFlow", "Streamlit", "SQLite", "OpenWeather API"],
+      "online": true,
+      "url": "https://phytodiag.streamlit.app",
+      "visualisation": null
+    },
+    {
       "nom": "Mon Portfolio",
       "description": "Template de portfolio pour jeunes freelances, personnalisable et déployable facilement.",
       "image": "logo1",
@@ -43,7 +53,7 @@
     {
       "nom": "CDN",
       "description": "Maquette pour le site du Code du Num\u00e9rique - minist\u00e8re du num\u00e9rique et de la digitalisation.",
-      "image": "logo1",
+      "image": "logo2",
       "categorie": "Design",
       "technologies": ["Figma", "UX/UI"],
       "online": false,
@@ -73,7 +83,7 @@
     {
       "nom": "CryptoFarm",
       "description": "Fonctions d'encodage et d\u00e9codage par algorithmes de C\u00e9sar, Vig\u00e9n\u00e8re et Affine.",
-      "image": "logo1",
+      "image": "logo2",
       "categorie": "Autre",
       "technologies": ["Python"],
       "online": false,

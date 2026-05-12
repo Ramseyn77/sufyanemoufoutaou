@@ -7,6 +7,7 @@ import Competence from "./pages/competence";
 import Service from "./pages/service";
 import Blog from "./pages/blog";
 import Contact from "./pages/contact";
+import ChatWidget from "./components/ChatWidget";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </div>
+      <ChatWidget />
       </div>
     </BrowserRouter>
   );

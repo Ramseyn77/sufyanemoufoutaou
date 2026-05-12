@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.vercel
+# Knowledge base RAG (régénérée au build)
+public/knowledge.json
+

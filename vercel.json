@@ -1,5 +1,12 @@
 {
+  "framework": "vite",
+  "installCommand": "npm install",
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/about", "destination": "/index.html" },
+    { "source": "/portfolio", "destination": "/index.html" },
+    { "source": "/skills", "destination": "/index.html" },
+    { "source": "/services", "destination": "/index.html" },
+    { "source": "/blog", "destination": "/index.html" },
+    { "source": "/contact", "destination": "/index.html" }
   ]
 }

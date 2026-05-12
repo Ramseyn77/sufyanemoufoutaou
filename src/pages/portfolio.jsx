@@ -11,11 +11,13 @@ import lydiaImg from '../assets/img/lydia.jpg'
 import alainImg from '../assets/img/Alain1.png'
 import logo1Img from '../assets/img/logo1.png'
 import miwadoo from '../assets/img/miwadoo.png'
+import logo2Img from '../assets/img/logo2.png'
 
 const imageMap = {
   lydia: lydiaImg,
   alain: alainImg,
   logo1: logo1Img,
+  logo2 : logo2Img,
   miwadoo : miwadoo
 }
 
