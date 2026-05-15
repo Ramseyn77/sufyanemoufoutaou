@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Seo from '../components/Seo'
 import data from '../utils/data.json'
 import { GoArrowUpRight } from 'react-icons/go'
-import { CheckCircle2, Globe, Brain, BarChart2, Zap } from 'lucide-react'
+import { CheckCircle2, Globe, Brain, BarChart2, Zap, ChevronLeft, ChevronRight } from 'lucide-react'
 
 const { services } = data
 
@@ -24,6 +24,40 @@ const couleurMap = {
 }
 
 const Service = () => {
+  const carouselRef = useRef(null)
+  const [activeStep, setActiveStep] = useState(0)
+
+  const scrollToStep = (index) => {
+    const el = carouselRef.current
+    if (!el) return
+    const card = el.children[index]
+    if (card) {
+      el.scrollTo({ left: card.offsetLeft - el.offsetLeft, behavior: 'smooth' })
+    }
+  }
+
+  useEffect(() => {
+    const el = carouselRef.current
+    if (!el) return
+    const onScroll = () => {
+      const cards = Array.from(el.children)
+      const center = el.scrollLeft + el.clientWidth / 2
+      let closest = 0
+      let minDist = Infinity
+      cards.forEach((card, i) => {
+        const cardCenter = card.offsetLeft - el.offsetLeft + card.clientWidth / 2
+        const dist = Math.abs(cardCenter - center)
+        if (dist < minDist) {
+          minDist = dist
+          closest = i
+        }
+      })
+      setActiveStep(closest)
+    }
+    el.addEventListener('scroll', onScroll, { passive: true })
+    return () => el.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
     <div className="flex flex-col w-full min-h-screen dark:bg-[var(--color-dark)]">
       <Seo
@@ -131,31 +165,71 @@ const Service = () => {
           <h2 className="text-xl font-bold text-[var(--color-text-dark)] dark:text-[var(--color-text-light)] text-center">
             Mon process de travail
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {services.process.map((step, i) => (
-              <div
-                key={i}
-                className="relative overflow-hidden flex flex-col gap-4 bg-[#f3f4f6] dark:bg-[var(--color-dark-surface)] rounded-2xl p-5 border border-[rgba(249,158,11,0.2)]"
-              >
-                <span className="absolute -top-4 -right-1 text-6xl font-black text-[rgba(249,158,11,0.15)] select-none">
-                  {step.numero}
-                </span>
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-2xl bg-[var(--color-warm)] text-white flex items-center justify-center flex-shrink-0 shadow-sm">
-                    <span className="text-base font-extrabold leading-none">{step.numero}</span>
-                  </div>
-                  <span className="text-[11px] uppercase tracking-[0.2em] text-[var(--color-warm)] font-bold">
-                    Etape {step.numero}
+          <div className="relative">
+            <button
+              type="button"
+              aria-label="Étape précédente"
+              onClick={() => scrollToStep(Math.max(0, activeStep - 1))}
+              disabled={activeStep === 0}
+              className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 z-10 w-10 h-10 items-center justify-center rounded-full bg-[var(--color-warm)] text-white shadow-md hover:bg-[#EA9309] transition disabled:opacity-30 disabled:cursor-not-allowed"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+              type="button"
+              aria-label="Étape suivante"
+              onClick={() => scrollToStep(Math.min(services.process.length - 1, activeStep + 1))}
+              disabled={activeStep === services.process.length - 1}
+              className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 z-10 w-10 h-10 items-center justify-center rounded-full bg-[var(--color-warm)] text-white shadow-md hover:bg-[#EA9309] transition disabled:opacity-30 disabled:cursor-not-allowed"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+
+            <div
+              ref={carouselRef}
+              className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2 -mx-4 px-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            >
+              {services.process.map((step, i) => (
+                <div
+                  key={i}
+                  className="snap-center shrink-0 w-[85%] sm:w-[60%] md:w-[45%] lg:w-[30%] relative overflow-hidden flex flex-col gap-4 bg-[#f3f4f6] dark:bg-[var(--color-dark-surface)] rounded-2xl p-5 border border-[rgba(249,158,11,0.2)]"
+                >
+                  <span className="absolute -top-4 -right-1 text-6xl font-black text-[rgba(249,158,11,0.15)] select-none">
+                    {step.numero}
                   </span>
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-2xl bg-[var(--color-warm)] text-white flex items-center justify-center flex-shrink-0 shadow-sm">
+                      <span className="text-base font-extrabold leading-none">{step.numero}</span>
+                    </div>
+                    <span className="text-[11px] uppercase tracking-[0.2em] text-[var(--color-warm)] font-bold">
+                      Etape {step.numero}
+                    </span>
+                  </div>
+                  <h3 className="text-sm font-bold text-[var(--color-text-dark)] dark:text-[var(--color-text-light)] leading-snug">
+                    {step.titre}
+                  </h3>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+                    {step.description}
+                  </p>
                 </div>
-                <h3 className="text-sm font-bold text-[var(--color-text-dark)] dark:text-[var(--color-text-light)] leading-snug">
-                  {step.titre}
-                </h3>
-                <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
-                  {step.description}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
+
+            <div className="flex justify-center gap-2 mt-4">
+              {services.process.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  aria-label={`Aller à l'étape ${i + 1}`}
+                  onClick={() => scrollToStep(i)}
+                  className={`h-2 rounded-full transition-all ${
+                    activeStep === i
+                      ? 'w-6 bg-[var(--color-warm)]'
+                      : 'w-2 bg-gray-300 dark:bg-gray-600 hover:bg-gray-400'
+                  }`}
+                />
+              ))}
+            </div>
           </div>
           <div className="flex justify-center mt-2">
             <Link

@@ -61,8 +61,14 @@ const Home = () => {
 
       {/* Hero */}
       <div className="flex flex-col items-start w-full px-4 py-6 gap-4 md:flex-row md:items-center md:justify-between">
-        <div className="italic font-mono font-bold text-[#0D1B2A] dark:text-white text-2xl sm:text-3xl md:text-4xl flex-1">
-          Sufyane MOUFOUTAOU
+        <div className="flex flex-col gap-2 flex-1">
+          <h1 className="italic font-mono font-bold text-[#0D1B2A] dark:text-white text-2xl sm:text-3xl md:text-4xl leading-tight">
+            Développeur IA Full-Stack
+            <span className="text-[var(--color-warm)]"> — Web & Mobile</span>
+          </h1>
+          <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed max-w-xl">
+            Je conçois des sites, applications et solutions IA pour PME et porteurs de projets.
+          </p>
         </div>
         <div className="flex flex-wrap items-center gap-3 w-full md:w-auto">
           <Link to="/contact">
