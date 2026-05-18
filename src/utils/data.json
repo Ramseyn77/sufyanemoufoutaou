@@ -25,7 +25,7 @@
       "description": "Plateforme de gestion des \u00e9tablissements scolaires - gestion des \u00e9l\u00e8ves, emplois du temps et notes.",
       "image": "lydia",
       "categorie": "Web",
-      "technologies": ["React", "Node.js", "MySQL"],
+      "technologies": ["Angular", "Node.js", "MySQL"],
       "online": true,
       "url": "https://www.lydia-edu.com",
       "visualisation": null
