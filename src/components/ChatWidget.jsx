@@ -3,7 +3,7 @@ import { MessageCircle, X, Send } from 'lucide-react'
 
 const WELCOME_MESSAGE = {
   role: 'assistant',
-  content: "👋 Bonjour ! Je suis l'assistant IA de Sufyane. Posez-moi vos questions sur ses services, son parcours ou ses projets.",
+  content: "👋 Bonjour ! Je suis l'assistant IA de Sufyane. Posez-moi vos questions sur ses services, son parcours ou ses projets.\n\n👋 Hello! I'm Sufyane's AI assistant. Ask me anything about his services, background or projects — in French or English.",
 }
 
 export default function ChatWidget() {
