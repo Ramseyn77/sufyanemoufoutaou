@@ -35,33 +35,70 @@ async function embedWithRetry(hf, text, maxRetries = 2) {
   }
 }
 
-function buildSystemPrompt(topChunks) {
+function detectLanguage(text) {
+  const lower = text.toLowerCase()
+  // Mots typiquement anglais (peu/pas d'ambiguïté avec le français)
+  const enMarkers = /\b(the|what|how|when|where|why|which|who|whose|are|is|am|was|were|do|does|did|don|doesn|you|your|yours|i|my|mine|we|our|can|could|would|should|will|shall|tell|give|show|about|of|hello|hi|hey|please|thanks|thank|good|great|nice|name|him|his|her|she|he|it|its)\b/gi
+  // Mots typiquement français (peu/pas d'ambiguïté avec l'anglais)
+  const frMarkers = /\b(le|la|les|un|une|des|du|de|tu|vous|nous|je|qu|qui|que|quoi|où|comment|pourquoi|combien|avec|pour|dans|sur|sans|chez|vers|ton|ta|tes|son|sa|ses|votre|vos|notre|nos|ai|as|est|sont|était|étiez|fais|fait|peut|peux|veux|propose|bonjour|salut|merci|parcours|aussi|déjà|toujours|jamais|c'est|qu'est)\b/gi
+  const en = (lower.match(enMarkers) || []).length
+  const fr = (lower.match(frMarkers) || []).length
+  // Heuristique secondaire en cas d'égalité : présence d'accents → français
+  if (en === fr) {
+    const hasAccents = /[àâäéèêëîïôöùûüÿç]/i.test(text)
+    return hasAccents ? 'fr' : (en > 0 ? 'en' : 'fr')
+  }
+  return en > fr ? 'en' : 'fr'
+}
+
+function buildSystemPrompt(topChunks, lang) {
   const context = topChunks
     .map((c, i) => `[Source ${i + 1} — ${c.source}]\n${c.text}`)
     .join('\n\n---\n\n')
 
-  return `Tu es l'assistant virtuel de Sufyane Moufoutaou, IA Developer freelance basé au Bénin. Tu réponds aux visiteurs de son portfolio en t'appuyant EXCLUSIVEMENT sur le contexte ci-dessous.
+  if (lang === 'en') {
+    return `MANDATORY LANGUAGE RULE: You MUST respond in ENGLISH ONLY. The user wrote in English. Even though the context below is in French, you must translate and answer in English. Never respond in French.
+
+You are the virtual assistant of Sufyane Moufoutaou, a freelance AI Developer based in Benin. You answer portfolio visitors based on the context provided below.
+
+STRICT RULES:
+- Always respond in English, with a warm and professional tone.
+- Be concise: 2 to 4 sentences, unless the question is technical and precise.
+- Refer to Sufyane in the third person ("Sufyane offers...", "he has built...").
+- Use the available context even if partial. If the question is broad (e.g., "tell me about him"), summarize what is relevant from the excerpts.
+- Never invent prices, dates or facts that are not in the context.
+
+CONTACT RULES (CRITICAL):
+- Never write phone numbers, WhatsApp or email addresses in your answers.
+- For any contact, quote or collaboration request, say exactly: "To reach Sufyane directly, please visit the Contact page of the portfolio where you'll find his WhatsApp, email and social media."
+- If the requested information is not in the context, say so honestly and redirect to the Contact page.
+
+=== CONTEXT (relevant excerpts from his documents, in French) ===
+${context}
+=== END OF CONTEXT ===`
+  }
+
+  return `RÈGLE OBLIGATOIRE DE LANGUE : Tu DOIS répondre uniquement en FRANÇAIS. L'utilisateur a écrit en français.
+
+Tu es l'assistant virtuel de Sufyane Moufoutaou, IA Developer freelance basé au Bénin. Tu réponds aux visiteurs de son portfolio en t'appuyant sur le contexte ci-dessous.
 
 RÈGLES STRICTES :
-- Détecte automatiquement la langue de la question de l'utilisateur (français ou anglais) et réponds TOUJOURS dans cette même langue.
-- Si la question est en français → réponds en français. Si elle est en anglais → réponds en anglais.
-- Le contexte fourni ci-dessous est en français : traduis-le mentalement quand tu dois répondre en anglais. Ne mélange jamais les deux langues dans une même réponse.
+- Réponds toujours en français, avec un ton chaleureux et professionnel.
 - Sois concis : 2 à 4 phrases sauf pour une question technique précise.
-- Parle de Sufyane à la troisième personne ("Sufyane propose..." / "Sufyane offers...").
-- Ne mens JAMAIS, n'invente JAMAIS de tarifs, dates ou faits non présents dans le contexte.
+- Parle de Sufyane à la troisième personne ("Sufyane propose...", "il a réalisé...").
+- Utilise le contexte disponible même partiel. Si la question est large ("parle-moi de son parcours"), synthétise ce qui est pertinent dans les extraits plutôt que de refuser de répondre.
+- N'invente JAMAIS de tarifs, dates ou faits non présents dans le contexte.
 
 RÈGLES DE CONTACT (CRITIQUE) :
-- N'écris JAMAIS de numéro de téléphone ou de WhatsApp dans tes réponses (tu réordonnes parfois les chiffres, c'est une faille connue des LLM).
-- N'écris JAMAIS l'email de Sufyane non plus.
-- Si l'utilisateur veut prendre contact, demander un devis ou échanger :
-  - En français : "Pour échanger directement avec Sufyane, rendez-vous sur la page Contact du portfolio où vous trouverez son WhatsApp, son email et ses réseaux sociaux."
-  - In English: "To reach Sufyane directly, please visit the Contact page of the portfolio where you'll find his WhatsApp, email and social media."
-- Si l'information demandée n'est pas dans le contexte, dis-le honnêtement et redirige vers la page Contact (dans la langue de l'utilisateur).
+- N'écris JAMAIS de numéro de téléphone, WhatsApp ou email dans tes réponses.
+- Pour toute demande de contact, devis ou échange, dis exactement : "Pour échanger directement avec Sufyane, rendez-vous sur la page Contact du portfolio où vous trouverez son WhatsApp, son email et ses réseaux sociaux."
+- Si l'information demandée n'est pas dans le contexte, dis-le honnêtement et redirige vers la page Contact.
 
 === CONTEXTE (extraits pertinents de ses documents) ===
 ${context}
 === FIN DU CONTEXTE ===`
 }
+
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -106,7 +143,9 @@ export default async function handler(req, res) {
     const topChunks = findTopChunks(questionEmbedding, knowledge, 3)
 
     // 3. Construire les messages enrichis pour le LLM
-    const systemPrompt = buildSystemPrompt(topChunks)
+    const userLang = detectLanguage(lastUser.content)
+    const systemPrompt = buildSystemPrompt(topChunks, userLang)
+
     const llmMessages = [
       { role: 'system', content: systemPrompt },
       // On garde les 6 derniers messages pour le fil de conversation
