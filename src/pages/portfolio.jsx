@@ -12,16 +12,20 @@ import alainImg from '../assets/img/Alain1.png'
 import logo1Img from '../assets/img/logo1.png'
 import miwadoo from '../assets/img/miwadoo.png'
 import logo2Img from '../assets/img/logo2.png'
+import airmess from '../assets/img/airmess.png'
+import promptui from '../assets/img/promptui.png'
 
 const imageMap = {
   lydia: lydiaImg,
   alain: alainImg,
   logo1: logo1Img,
   logo2 : logo2Img,
-  miwadoo : miwadoo
+  miwadoo : miwadoo,
+  airmess : airmess,
+  promptui:promptui
 }
 
-const categories = ['Tous', 'Web', 'Design', 'IA & ML', 'Autre']
+const categories = ['Tous', 'Web','Mobile', 'Design', 'IA & ML', 'Autre']
 
 const Portfolio = () => {
   const [activeCategory, setActiveCategory] = useState('Tous')

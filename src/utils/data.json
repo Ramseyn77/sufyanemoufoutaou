@@ -1,6 +1,36 @@
 {
   "projects": [
     {
+      "nom": "PromptUI",
+      "description": "Plateforme web et mobile dans le domaine de la livraison rapide des repas, elle met en relation les clients, restaurants et les livreurs.",
+      "image": "logo2",
+      "categorie": "Web",
+      "technologies": ["Next.js"],
+      "online": true,
+      "url": "https://prompt-ui-steel.vercel.app/",
+      "visualisation": null
+    },
+    {
+      "nom": "AirMess",
+      "description": "Un écosystème de livraison qui connecte commerces, clients et livreurs pour des courses rapides, suivies et sécurisées.",
+      "image": "airmess",
+      "categorie": "Web",
+      "technologies": ["laravel", "React","React-Native","PostgreSQL","firebase"],
+      "online": true,
+      "url": "https://airmess-logistics.com/",
+      "visualisation": null
+    },
+    {
+      "nom": "AirMess Driver",
+      "description": "L’application livreur qui permet de recevoir, gérer et livrer les courses AirMess en temps réel.",
+      "image": "airmess",
+      "categorie": "Mobile",
+      "technologies": ["laravel", "React-Native", "PostgreSQL", "Firebase"],
+      "online": true,
+      "url": "https://play.google.com/store/apps/details?id=com.anonymous.driver&pcampaignid=web_share",
+      "visualisation": null
+    },
+    {
       "nom": "Chatbot RAG Portfolio",
       "description": "Assistant IA conversationnel intégré à ce portfolio, capable de répondre aux visiteurs à partir d'un CV PDF et d'un catalogue Excel indexés via embeddings vectoriels. Démonstration en direct du service de chatbot sur documents.",
       "image": "logo2",
@@ -20,6 +50,27 @@
       "url": "https://www.miwadoo.com",
       "visualisation": null
     },
+    {
+      "nom": "MIWADOO",
+      "description": "Plateforme web et mobile dans le domaine de la livraison rapide des repas, elle met en relation les clients, restaurants et les livreurs.",
+      "image": "miwadoo",
+      "categorie": "Mobile",
+      "technologies": ["laravel", "flutter", "firebase"],
+      "online": true,
+      "url": "https://play.google.com/store/apps/details?id=com.miwadoo.customer&pcampaignid=web_share",
+      "visualisation": null
+    },
+    {
+      "nom": "Sufyane Portfolio",
+      "description": "Portfolio personnel pour présenter mes projets, compétences et services, avec un design moderne et responsive.",
+      "image": "sufyane",
+      "categorie": "Web",
+      "technologies": ["React", "Tailwind", "Vite"],
+      "online": true,
+      "url": "https://sufyane-portfolio.vercel.app/",
+      "visualisation": null
+    },
+
     {
       "nom": "Lydia",
       "description": "Plateforme de gestion des \u00e9tablissements scolaires - gestion des \u00e9l\u00e8ves, emplois du temps et notes.",
@@ -42,12 +93,12 @@
     },
     {
       "nom": "PhytoDiag",
-      "description": "Plateforme web de diagnostic des maladies des plantes par photo, bas\u00e9e sur un mod\u00e8le de deep learning avec int\u00e9gration des conditions m\u00e9t\u00e9o locales pour affiner les recommandations.",
+      "description": "Plateforme web de diagnostic des maladies des plantes par photo, bas\u00e9e sur un mod\u00e8le de deep learning avec int\u00e9gration des conditions m\u00e9t\u00e9o locales pour affiner les recommandations. Version 1",
       "image": "logo2",
       "categorie": "IA & ML",
       "technologies": ["Python", "TensorFlow", "Streamlit", "SQLite", "OpenWeather API"],
-      "online": true,
-      "url": "https://phytodiag.streamlit.app",
+      "online": false,
+      "url": "https://github.com/Ramseyn77/PlantVillage",
       "visualisation": null
     },
     {
